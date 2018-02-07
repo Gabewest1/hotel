@@ -16,9 +16,9 @@ import Services from "./pages/Services"
 
 const App = () => (
   <Router>
-    <div>
+    <div style={{ position: "relative" }}>
       
-      <Navbar />
+      <Navbar style={{ position: "absolute", "top": 0, "left": 0 }}/>
 
       <Route exact path="/" component={Home}/>
       <Route path="/contact" component={Contact}/>
