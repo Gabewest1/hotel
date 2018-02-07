@@ -6,23 +6,46 @@ class Navbar extends React.Component {
     render() {
         return (
             <NavbarView>
+
+                <Background />
+
                 <TopNavbar>
                     <Logo src="/assets/images/logo.svg" />
+
+                    <BookRoomButtonContainer>
+                        <BookRoomButton to="/listings">Check Availability</BookRoomButton>
+                    </BookRoomButtonContainer>
                 </TopNavbar>
-                <List>
-                    <ListItem><Link to="/">Home</Link></ListItem>
-                    <ListItem><Link to="/contact">Contact Us</Link></ListItem>
-                    <ListItem><Link to="/events">Meetings &amp; Events</Link></ListItem>
-                    <ListItem><Link to="/rooms">Rooms &amp; Suites</Link></ListItem>
-                    <ListItem><Link to="/services">Services</Link></ListItem>
-                </List>
-                <div>
-                    <BookRoomButton to="/listings">Check Availability</BookRoomButton>
-                </div>
+
+                <BottomNavbar>
+                    <List>
+                        <ListItem><Link to="/">Home</Link></ListItem>
+                        <ListItem><Link to="/contact">Contact Us</Link></ListItem>
+                        <ListItem><Link to="/events">Meetings &amp; Events</Link></ListItem>
+                        <ListItem><Link to="/rooms">Rooms &amp; Suites</Link></ListItem>
+                        <ListItem><Link to="/services">Services</Link></ListItem>
+                    </List>
+                </BottomNavbar>
             </NavbarView>
         )
     }
 }
+
+const LINK_COLOR = "#fcfcfc;"
+const BOTTOM_NAV_BACKGROUND = "lightblue"
+const NAV_BAR_STYLE = `
+    background: transparent;
+    box-sizing: border-box;
+    padding: 0 15px;
+`
+
+const Background = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(#000, #2d2d2d);
+    height: 100%;
+`
 
 const BookRoomButton = styled(Link)`
     border: solid thin black;
@@ -38,11 +61,23 @@ const BookRoomButton = styled(Link)`
         background: black;
     }
 `
+const BookRoomButtonContainer = styled.div`
+
+`
 const Logo = styled.img`
     max-width: 250px;
 `
 const ListItem = styled.li`
+    margin: 0;
 
+    a {
+        color: ${ LINK_COLOR };
+        text-decoration: none;
+
+        &:hover { 
+            text-decoration: underline;
+        }
+    }
 `
 const List = styled.ul`
     display: flex;
@@ -51,9 +86,10 @@ const List = styled.ul`
     align-items: center;
     justify-content: space-between;
     margin: 0;
-    padding: 0 15px;
+    width: 100%;
+    padding: 0;
+    height: 40px;
     
-
     ${ ListItem } {
         margin: 0 15px;
 
@@ -68,19 +104,27 @@ const List = styled.ul`
 `
 
 const TopNavbar = styled.div`
+    ${ NAV_BAR_STYLE }
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    background: rgba(0, 0, 0, .4);
     width: 100%;
 `
-
+const BottomNavbar = styled.div`
+    ${ NAV_BAR_STYLE }
+    background-color: ${ BOTTOM_NAV_BACKGROUND };
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+`
 const NavbarView = styled.div`
+    background: #fcfcfc;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    border-bottom: solid thin black;    
+    position: relative;
 `
 
 export default Navbar
