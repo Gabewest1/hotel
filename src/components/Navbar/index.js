@@ -19,7 +19,14 @@ class Navbar extends React.Component {
 }
 
 const List = styled.ul`
-
+    display: flex;
+    list-style: none;
+    border-bottom: solid thin black;
+    height: 70px;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
 `
 
 const ListItem = styled.li`
