@@ -32,7 +32,7 @@ class Navbar extends React.Component {
 }
 
 const LINK_COLOR = "#fcfcfc;"
-const BOTTOM_NAV_BACKGROUND = "lightblue"
+const BOTTOM_NAV_BACKGROUND = "#dbb96f"
 const NAV_BAR_STYLE = `
     background: transparent;
     box-sizing: border-box;
@@ -109,6 +109,7 @@ const TopNavbar = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    height: 120px;
 `
 const BottomNavbar = styled.div`
     ${ NAV_BAR_STYLE }
