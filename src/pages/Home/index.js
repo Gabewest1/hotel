@@ -5,22 +5,43 @@ class Home extends Component {
   render() {
     return (
       <HomeView>
-        AYYY LMAO ITS THE HOME PAGE
+        <Title>AYYY LMAO ITS THE HOME PAGE</Title>
         
         <ContactSection>
-          Contact Section
+          <Title>Contact Section</Title>
+          <Description>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum, maxime itaque. Dolorem veniam veritatis eum consectetur molestias non saepe, perspiciatis odio suscipit ipsam tempore omnis quaerat iste maiores eligendi. Facilis.
+          </Description>
         </ContactSection>
 
         <RoomsSection>
-          Rooms Section
+          <Title>Rooms Section</Title>
+          <ImageContainer>
+            <Image src="/assets/images/filler.jpg"/>
+          </ImageContainer>
+          <Description>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum, maxime itaque. Dolorem veniam veritatis eum consectetur molestias non saepe, perspiciatis odio suscipit ipsam tempore omnis quaerat iste maiores eligendi. Facilis.
+          </Description>
         </RoomsSection>
 
         <ActivitiesSection>
-          Activites Section
+          <Title>Activites Section</Title>
+          <ImageContainer>
+            <Image src="/assets/images/filler.jpg"/>
+          </ImageContainer>
+          <Description>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum, maxime itaque. Dolorem veniam veritatis eum consectetur molestias non saepe, perspiciatis odio suscipit ipsam tempore omnis quaerat iste maiores eligendi. Facilis.
+          </Description>
         </ActivitiesSection>
 
         <FoodSection>
-          Food Section
+          <Title>Food Section</Title>
+          <ImageContainer>
+            <Image src="/assets/images/filler.jpg"/>
+          </ImageContainer>
+          <Description>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum, maxime itaque. Dolorem veniam veritatis eum consectetur molestias non saepe, perspiciatis odio suscipit ipsam tempore omnis quaerat iste maiores eligendi. Facilis.
+          </Description>
         </FoodSection>
 
       </HomeView>
@@ -29,8 +50,16 @@ class Home extends Component {
 }
 
 const SectionStyles = `
-  height: 200px;
+  
 `
+const Title = styled.h1`
+
+`
+const Description = styled.p`
+
+`
+const Image = styled.img``
+const ImageContainer = styled.div``
 const ContactSection = styled.section`
   ${ SectionStyles }  
 `
