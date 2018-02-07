@@ -6,6 +6,9 @@ class Navbar extends React.Component {
     render() {
         return (
             <NavbarView>
+                <TopNavbar>
+                    <Logo src="/assets/images/logo.svg" />
+                </TopNavbar>
                 <List>
                     <ListItem><Link to="/">Home</Link></ListItem>
                     <ListItem><Link to="/contact">Contact Us</Link></ListItem>
@@ -21,10 +24,23 @@ class Navbar extends React.Component {
     }
 }
 
-const BookRoomButton = styled.button`
+const BookRoomButton = styled(Link)`
+    border: solid thin black;
+    border-radius: 7px;
+    background: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    color: black;
 
+    &:hover {
+        color: white;
+        border: solid thin white;
+        background: black;
+    }
 `
-
+const Logo = styled.img`
+    max-width: 250px;
+`
 const ListItem = styled.li`
 
 `
@@ -35,7 +51,8 @@ const List = styled.ul`
     align-items: center;
     justify-content: space-between;
     margin: 0;
-    padding: 0;
+    padding: 0 15px;
+    
 
     ${ ListItem } {
         margin: 0 15px;
@@ -50,12 +67,20 @@ const List = styled.ul`
     }
 `
 
+const TopNavbar = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, .4);
+    width: 100%;
+`
+
 const NavbarView = styled.div`
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: space-between;
     border-bottom: solid thin black;    
-    padding: 0 15px;
 `
 
 export default Navbar
