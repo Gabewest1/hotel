@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import styled from "styled-components"
 
+import Header from "../../components/Header"
+
 class Home extends Component {
   render() {
     return (
       <HomeView>
-        <Title>AYYY LMAO ITS THE HOME PAGE</Title>
-        
+                
+        <Header />
+
         <ContactSection>
           <Title>Contact Section</Title>
           <Description>
@@ -50,7 +53,7 @@ class Home extends Component {
 }
 
 const SectionStyles = `
-  
+
 `
 const Title = styled.h1`
 
@@ -74,6 +77,8 @@ const FoodSection = styled.section`
 `
 const HomeView = styled.div`
   ${ SectionStyles }
+  background: url(/assets/images/home_hero.jpg) no-repeat;
+  background-size: cover;
 `
 
 export default Home
