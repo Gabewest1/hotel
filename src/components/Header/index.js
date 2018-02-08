@@ -14,6 +14,7 @@ class Header extends React.Component {
 const HeaderView = styled.div`
     height: 100vh;
     background: url(/assets/images/home_hero.jpg) no-repeat;
-    background-size: contain;
+    background-size: cover;
+    background-position: 80% center;
 `
 export default Header

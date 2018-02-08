@@ -77,8 +77,6 @@ const FoodSection = styled.section`
 `
 const HomeView = styled.div`
   ${ SectionStyles }
-  background: url(/assets/images/home_hero.jpg) no-repeat;
-  background-size: cover;
 `
 
 export default Home
