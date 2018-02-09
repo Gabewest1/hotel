@@ -135,12 +135,13 @@ const BottomNavbar = styled.div`
     width: 100%;
 `
 const NavbarView = styled.div`
-    background: #fefbd000;
+    background: #fefbd0;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    position: relative;
+    position: absolute;
+    width: 100%;
 `
 
 export default Navbar
