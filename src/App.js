@@ -13,6 +13,7 @@ import Listings from "./pages/Listings"
 import Rooms from "./pages/Rooms"
 import Services from "./pages/Services"
 
+import "./App.css"
 
 const App = () => (
   <Router>
