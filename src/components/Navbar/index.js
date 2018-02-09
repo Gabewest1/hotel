@@ -25,11 +25,10 @@ class Navbar extends React.Component {
                             <ListItem><Link to="/contact">Contact Us</Link></ListItem>
                             <ListItem><Link to="/events">Meetings &amp; Events</Link></ListItem>
                             <ListItem><Link to="/rooms">Rooms &amp; Suites</Link></ListItem>
-                            <ListItem><Link to="/services">Services</Link></ListItem>
+                            <ListItem><Link to="/services">Contact Us</Link></ListItem>
                             <ListItem><Link to="">Services</Link></ListItem>
-                            <ListItem><Link to="">Services</Link></ListItem>
-                            <ListItem><Link to="">Services</Link></ListItem>
-                            
+                            <ListItem><Link to="">Contact Us</Link></ListItem>
+                            <ListItem><Link to="">Rooms</Link></ListItem>
                         </List>
                     </div>
                 </BottomNavbar>
@@ -39,7 +38,7 @@ class Navbar extends React.Component {
 }
 
 const LINK_COLOR = "#fcfcfc;"
-const BOTTOM_NAV_BACKGROUND = "#161921";
+const BOTTOM_NAV_BACKGROUND = "#080808";
 const NAV_BAR_STYLE = `
     background-color: transparent;
     box-sizing: border-box;
@@ -58,16 +57,18 @@ const BookRoomButton = styled(Link)`
     border-radius: 1px;
     background: #fdfdfd;
     text-decoration: none;
-    letter-spacing: 0.14rem;
+    letter-spacing: 0.16rem;
     text-transform: uppercase;
     color: #4c0505;
     display: inline-block;
-    width: 267px;
-    height: 31px;
-    font-size: 15px;
+    width: 252px;
+    height: 33px;
+    font-size: 13px;
+    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Montserrat', sans-serif;
     &:hover {
         color: white;
         border: solid thin white;
@@ -83,13 +84,16 @@ const Logo = styled.img`
 const ListItem = styled.li`
     text-transform: uppercase;
     margin: 0;
-    font-size: 13px;
-    letter-spacing: 0.06rem;
+    font-size: 11px;
+    letter-spacing: 0.1rem;
+    font-family: 'Montserrat', sans-serif;    
     a {
         color: ${ LINK_COLOR };
         text-decoration: none;
         &:hover { 
-            text-decoration: underline;
+            // text-decoration: underline;
+            color: #ed1616;
+            font-weight: bold;
         }
     }
 `
@@ -124,7 +128,7 @@ const TopNavbar = styled.div`
     align-items: center;
     width: 90%;
     max-width: 1200px;
-    height: 90px;
+    height: 74px;
 `
 const BottomNavbar = styled.div`
     ${ NAV_BAR_STYLE }
@@ -133,6 +137,7 @@ const BottomNavbar = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
+    height: 35px;
 `
 const NavbarView = styled.div`
     background: #fefbd000;
