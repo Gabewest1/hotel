@@ -26,6 +26,10 @@ class Navbar extends React.Component {
                             <ListItem><Link to="/events">Meetings &amp; Events</Link></ListItem>
                             <ListItem><Link to="/rooms">Rooms &amp; Suites</Link></ListItem>
                             <ListItem><Link to="/services">Services</Link></ListItem>
+                            <ListItem><Link to="">Services</Link></ListItem>
+                            <ListItem><Link to="">Services</Link></ListItem>
+                            <ListItem><Link to="">Services</Link></ListItem>
+                            
                         </List>
                     </div>
                 </BottomNavbar>
@@ -131,7 +135,7 @@ const BottomNavbar = styled.div`
     width: 100%;
 `
 const NavbarView = styled.div`
-    background: cream;
+    background: #fefbd000;
     display: flex;
     align-items: center;
     flex-direction: column;
