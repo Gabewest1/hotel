@@ -4,8 +4,10 @@ import { Link } from "react-router-dom"
 
 class Navbar extends React.Component {
     render() {
+        console.log("STYLE:", this.props.style)
+        
         return (
-            <NavbarView>
+            <NavbarView { ...this.props }>
 
                 <Background />
 
@@ -145,8 +147,8 @@ const NavbarView = styled.div`
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    position: absolute;
     width: 100%;
+    position: ${({ match }) => match.isExact ? "absolute" : "relative"};
     z-index: 1;
 `
 

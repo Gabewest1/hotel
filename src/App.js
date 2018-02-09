@@ -2,7 +2,8 @@ import React from 'react'
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Switch
 } from 'react-router-dom'
 
 import Navbar from "./components/Navbar"
@@ -19,7 +20,7 @@ const App = () => (
   <Router>
     <div style={{ position: "relative" }}>
       
-      <Navbar style={{ position: "absolute", "top": 0, "left": 0 }}/>
+      <Route path="/" component={Navbar} />
 
       <Route exact path="/" component={Home}/>
       <Route path="/contact" component={Contact}/>
