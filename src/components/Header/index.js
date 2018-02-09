@@ -45,7 +45,7 @@ const Description = styled.p`
 const HeaderView = styled.div`
     color: #161921;
     height: 100vh;
-    background: url(/assets/images/home_hero2.jpg) no-repeat;
+    background: url(/assets/images/home_hero.jpg) no-repeat;
     background-size: cover;
     background-position: 80% center;
 `
