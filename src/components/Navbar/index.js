@@ -10,7 +10,7 @@ class Navbar extends React.Component {
                 <Background />
 
                 <TopNavbar>
-                    <Logo src="/assets/images/logo.svg" />
+                    <Logo src="/assets/images/logo5.svg" />
 
                     <BookRoomButtonContainer>
                         <BookRoomButton to="/listings">Check Availability</BookRoomButton>
@@ -32,9 +32,9 @@ class Navbar extends React.Component {
 }
 
 const LINK_COLOR = "#fcfcfc;"
-const BOTTOM_NAV_BACKGROUND = "#dbb96f"
+const BOTTOM_NAV_BACKGROUND = "#770000";
 const NAV_BAR_STYLE = `
-    background: transparent;
+    background-color: #ccc;
     box-sizing: border-box;
     padding: 0 15px;
 `
@@ -49,12 +49,18 @@ const Background = styled.div`
 
 const BookRoomButton = styled(Link)`
     border: solid thin black;
-    border-radius: 7px;
+    border-radius: 6px;
     background: white;
     text-decoration: none;
-    padding: 10px 15px;
+    // padding: 10px 15px;
     color: black;
-
+    display: inline-block;
+    width: 234px;
+    height: 35px;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &:hover {
         color: white;
         border: solid thin white;
@@ -68,12 +74,13 @@ const Logo = styled.img`
     max-width: 250px;
 `
 const ListItem = styled.li`
+    text-transform: uppercase;
     margin: 0;
-
+    font-size: 13px;
+    letter-spacing: 0.06rem;
     a {
         color: ${ LINK_COLOR };
         text-decoration: none;
-
         &:hover { 
             text-decoration: underline;
         }
@@ -109,7 +116,7 @@ const TopNavbar = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 120px;
+    height: 60px;
 `
 const BottomNavbar = styled.div`
     ${ NAV_BAR_STYLE }
@@ -120,7 +127,7 @@ const BottomNavbar = styled.div`
     width: 100%;
 `
 const NavbarView = styled.div`
-    background: #fcfcfc;
+    background: #9e3b24;
     display: flex;
     align-items: center;
     flex-direction: column;
