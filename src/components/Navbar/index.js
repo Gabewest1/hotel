@@ -147,6 +147,7 @@ const NavbarView = styled.div`
     justify-content: space-between;
     position: absolute;
     width: 100%;
+    z-index: 1;
 `
 
 export default Navbar

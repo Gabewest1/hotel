@@ -5,6 +5,7 @@ class Header extends React.Component {
     render() {
         return (
             <HeaderView>
+                <Overlay />
                 <Wrapper>
                     <Title>
                         Lorem Title Ipsum
@@ -20,21 +21,30 @@ class Header extends React.Component {
 
 const SPACING = `
     position: relative;
-    top: 275px;
-    left: 75px;
+    top: 175px;
+    left: 50px;
     margin: 0;
+`
+
+const Overlay = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.3);
+    height: 100%;
+    width: 100%;
 `
 const Wrapper = styled.div`
     ${ SPACING };
-    background: #efefefcc;
+    // background: #efefefcc;
     display: inline-block;
-    text-align: center;
+    // text-align: center;
     padding: 15px;
     border-radius: 9px;
 `
 const Title = styled.h1`
     font-size: 72px;
-    font-family: 'Archivo Black', sans-serif;    
+    font-family: 'Hind', sans-serif;
     margin: 0;
     margin-bottom: 15px;
 `
@@ -43,7 +53,7 @@ const Description = styled.p`
     font-size: 18px;
 `
 const HeaderView = styled.div`
-    color: #161921;
+    color: #efefef;
     height: 100vh;
     background: url(/assets/images/home_hero.jpg) no-repeat;
     background-size: cover;
