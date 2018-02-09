@@ -20,12 +20,14 @@ class Navbar extends React.Component {
                 </TopNavbar>
 
                 <BottomNavbar>
-                    <List>
-                        <ListItem><Link to="/contact">Contact Us</Link></ListItem>
-                        <ListItem><Link to="/events">Meetings &amp; Events</Link></ListItem>
-                        <ListItem><Link to="/rooms">Rooms &amp; Suites</Link></ListItem>
-                        <ListItem><Link to="/services">Services</Link></ListItem>
-                    </List>
+                    <div style={{width: '90%', maxWidth: 1200}}>
+                        <List>
+                            <ListItem><Link to="/contact">Contact Us</Link></ListItem>
+                            <ListItem><Link to="/events">Meetings &amp; Events</Link></ListItem>
+                            <ListItem><Link to="/rooms">Rooms &amp; Suites</Link></ListItem>
+                            <ListItem><Link to="/services">Services</Link></ListItem>
+                        </List>
+                    </div>
                 </BottomNavbar>
             </NavbarView>
         )
@@ -35,9 +37,8 @@ class Navbar extends React.Component {
 const LINK_COLOR = "#fcfcfc;"
 const BOTTOM_NAV_BACKGROUND = "#161921";
 const NAV_BAR_STYLE = `
-    background-color: #F2E3CF;
+    background-color: transparent;
     box-sizing: border-box;
-    padding: 0 15px;
 `
 
 const Background = styled.div`
@@ -53,12 +54,12 @@ const BookRoomButton = styled(Link)`
     border-radius: 1px;
     background: #fdfdfd;
     text-decoration: none;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.14rem;
     text-transform: uppercase;
     color: #4c0505;
     display: inline-block;
     width: 267px;
-    height: 33px;
+    height: 31px;
     font-size: 15px;
     display: flex;
     justify-content: center;
@@ -117,19 +118,20 @@ const TopNavbar = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    height: 60px;
+    width: 90%;
+    max-width: 1200px;
+    height: 90px;
 `
 const BottomNavbar = styled.div`
     ${ NAV_BAR_STYLE }
     background-color: ${ BOTTOM_NAV_BACKGROUND };
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
 `
 const NavbarView = styled.div`
-    background: #9e3b24;
+    background: cream;
     display: flex;
     align-items: center;
     flex-direction: column;
