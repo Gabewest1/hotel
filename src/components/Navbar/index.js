@@ -32,9 +32,9 @@ class Navbar extends React.Component {
 }
 
 const LINK_COLOR = "#fcfcfc;"
-const BOTTOM_NAV_BACKGROUND = "#770000";
+const BOTTOM_NAV_BACKGROUND = "#161921";
 const NAV_BAR_STYLE = `
-    background-color: #ccc;
+    background-color: #F2E3CF;
     box-sizing: border-box;
     padding: 0 15px;
 `
@@ -48,16 +48,17 @@ const Background = styled.div`
 `
 
 const BookRoomButton = styled(Link)`
-    border: solid thin black;
-    border-radius: 6px;
-    background: white;
+    border: solid thin #4c0505;
+    border-radius: 1px;
+    background: #fdfdfd;
     text-decoration: none;
-    // padding: 10px 15px;
-    color: black;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    color: #4c0505;
     display: inline-block;
-    width: 234px;
-    height: 35px;
-    font-size: 17px;
+    width: 267px;
+    height: 33px;
+    font-size: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
