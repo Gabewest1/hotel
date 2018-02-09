@@ -10,7 +10,9 @@ class Navbar extends React.Component {
                 <Background />
 
                 <TopNavbar>
-                    <Logo src="/assets/images/logo5.svg" />
+                    <Link to="/">
+                        <Logo src="/assets/images/logo5.svg" />
+                    </Link>
 
                     <BookRoomButtonContainer>
                         <BookRoomButton to="/listings">Check Availability</BookRoomButton>
@@ -19,7 +21,6 @@ class Navbar extends React.Component {
 
                 <BottomNavbar>
                     <List>
-                        <ListItem><Link to="/">Home</Link></ListItem>
                         <ListItem><Link to="/contact">Contact Us</Link></ListItem>
                         <ListItem><Link to="/events">Meetings &amp; Events</Link></ListItem>
                         <ListItem><Link to="/rooms">Rooms &amp; Suites</Link></ListItem>

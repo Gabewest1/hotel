@@ -1,15 +1,27 @@
 import React, { Component } from 'react'
 import styled from "styled-components"
 
+import RoomItem from "../../components/RoomItem"
+import roomData from "./data"
+
 class Rooms extends Component {
   render() {
+    const listings = roomData.map(({ description, src, title }) => (
+      <RoomItem
+          description={ description }
+          src={ src }
+          title={ title }
+      />
+    ))
+
     return (
       <RoomsView>
-        AYYy LmaO ItS THe Rooms PAGE
+        { listings }
       </RoomsView>
     )
   }
 }
+
 
 const RoomsView = styled.div`
 
