@@ -90,6 +90,7 @@ const Title = styled.h1`
     letter-spacing: 0.2rem;
     text-transform: uppercase;
     margin: 0;
+    text-shadow: 0px 0px 30px #rgba(0,0,0,0.5);
     margin-bottom: 15px;
 `
 const Description = styled.p`
@@ -99,9 +100,10 @@ const Description = styled.p`
 const HeroView = styled.div`
     color: #efefef;
     height: 100vh;
-    background: url(/assets/images/home_hero2.png) no-repeat;
+    max-height: 600px;
+    background: url(/assets/images/home_hero3.png) no-repeat;
     background-size: cover;
-    background-position: 80% center;
+    background-position: 86% center;
     display: flex;
     flex-direction: column;
 `
