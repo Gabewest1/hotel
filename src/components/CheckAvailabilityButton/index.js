@@ -13,7 +13,7 @@ const BookRoomButton = styled(Link)`
     color: #4c0505;
     display: inline-block;
     width: 252px;
-    height: 33px;
+    height: 31px;
     font-size: 12px;
     font-weight: bold;
     display: flex;

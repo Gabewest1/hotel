@@ -16,9 +16,11 @@ class Navbar extends React.Component {
                         <Logo src="/assets/images/logo5.svg" />
                     </Link>
                     <Wrapper>
-                        <Button>Log In</Button>
-                        <Line />
-                        <Button>Sign Up</Button>
+                        <LoginWrapper>
+                            <Button>Log In</Button>
+                            <Line />
+                            <Button>Sign Up</Button>
+                        </LoginWrapper>
                         <CheckAvailabilityButton />
                     </Wrapper>
                 </TopNavbar>
@@ -46,24 +48,83 @@ const LINK_COLOR = "#fcfcfc;"
 const BOTTOM_NAV_BACKGROUND = SECONDARY_COLOR
 const TOP_NAV_BACKGROUND = PRIMARY_COLOR
 
-
 const Wrapper = styled.div`
-    height: 30px;
+    // height: 24px;
+    width: 420px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
+`
+
+const LoginWrapper = styled.div`
+    // width: 170px;
+    display: flex;
+    justify-content: space-between;
 `
 
 const Button = styled.button`
-    width: 100px;
+    width: 75px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
     border: none;
+    // font-family: 'Montserrat', sans-serif;    
+    font-family: 'Rammetto One', cursive;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Slabo 27px', serif;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Dhurjati', sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'PT Sans', sans-serif;
+    font-family: 'Roboto Slab', serif;
+    font-family: 'Merriweather', serif;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: 'Lora', serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Playfair Display', serif;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'PT Serif', serif;
+    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Arimo', sans-serif;
+    font-family: 'Muli', sans-serif;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-family: 'Encode Sans', sans-serif;
+    font-family: 'Noto Serif', serif;
+    // font-family: 'Indie Flower', cursive;
+    // font-family: 'Dosis', sans-serif;
+    // font-family: 'Nunito', sans-serif;
+    // font-family: 'Anton', sans-serif;
+    // font-family: 'Inconsolata', monospace;
+    // font-family: 'Crimson Text', serif;
+    // font-family: 'Bitter', serif;
+    // font-family: 'Fira Sans', sans-serif;
+    // font-family: 'Alegreya Sans', sans-serif;
+    // font-family: 'Archivo', sans-serif;
+    // font-family: 'Oxygen', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
+    // font-family: 'Libre Baskerville', serif;
+
+    font-size: 13px;
+    // font-weight: bold;    
+    // text-transform: uppercase;
+    // letter-spacing: 1px;
+    &:hover {
+        color: ${ TERTIARY_COLOR };
+    }
 `
 
 const Line = styled.div`
     background-color: ${ SECONDARY_COLOR };
     width: 1px;
-    height: 100%;
-    align-self: flex-end;
+    height: 23px;
+    position: relative;
+    right: 3px;
+    bottom: 1px;
 `
 
 
