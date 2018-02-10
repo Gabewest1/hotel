@@ -1,13 +1,9 @@
 import React from 'react'
 import {
   BrowserRouter as Router,
-<<<<<<< HEAD
   Route,
   Link,
   Switch
-=======
-  Route
->>>>>>> 0055ab337b7aa5075ffcf5778c8a43493ce43374
 } from 'react-router-dom'
 
 import Navbar from "./components/Navbar"
