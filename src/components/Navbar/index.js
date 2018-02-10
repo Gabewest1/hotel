@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "styled-components"
+import CheckAvailabilityButton from "../CheckAvailabilityButton"
 import { Link } from "react-router-dom"
+import  { PRIMARY_COLOR, SECONDARY_COLOR, TERTIARY_COLOR} from "../../constants/index"
 
 class Navbar extends React.Component {
     render() {
@@ -13,11 +15,9 @@ class Navbar extends React.Component {
                     <Link to="/">
                         <Logo src="/assets/images/logo5.svg" />
                     </Link>
-
-                    <BookRoomButtonContainer>
-                        <BookRoomButton to="/listings">Check Availability</BookRoomButton>
-                    </BookRoomButtonContainer>
+                    <CheckAvailabilityButton />
                 </TopNavbar>
+
 
                 <BottomNavbar>
                     <div style={{width: '90%', maxWidth: 1200}}>
@@ -38,7 +38,8 @@ class Navbar extends React.Component {
 }
 
 const LINK_COLOR = "#fcfcfc;"
-const BOTTOM_NAV_BACKGROUND = "#080808";
+const BOTTOM_NAV_BACKGROUND = SECONDARY_COLOR
+const TOP_NAV_BACKGROUND = PRIMARY_COLOR
 const NAV_BAR_STYLE = `
     background-color: transparent;
     box-sizing: border-box;
@@ -107,7 +108,6 @@ const List = styled.ul`
     width: 100%;
     padding: 0;
     height: 40px;
-    
     ${ ListItem } {
         margin: 0 15px;
 
@@ -140,7 +140,7 @@ const BottomNavbar = styled.div`
     height: 35px;
 `
 const NavbarView = styled.div`
-    background: #fefbd0;
+    background:  ${ TOP_NAV_BACKGROUND  };
     display: flex;
     align-items: center;
     flex-direction: column;
