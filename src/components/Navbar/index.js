@@ -15,7 +15,12 @@ class Navbar extends React.Component {
                     <Link to="/">
                         <Logo src="/assets/images/logo5.svg" />
                     </Link>
-                    <CheckAvailabilityButton />
+                    <Wrapper>
+                        <Button>Log In</Button>
+                        <Line />
+                        <Button>Sign Up</Button>
+                        <CheckAvailabilityButton />
+                    </Wrapper>
                 </TopNavbar>
 
 
@@ -40,6 +45,28 @@ class Navbar extends React.Component {
 const LINK_COLOR = "#fcfcfc;"
 const BOTTOM_NAV_BACKGROUND = SECONDARY_COLOR
 const TOP_NAV_BACKGROUND = PRIMARY_COLOR
+
+
+const Wrapper = styled.div`
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+
+const Button = styled.button`
+    width: 100px;
+    border: none;
+`
+
+const Line = styled.div`
+    background-color: ${ SECONDARY_COLOR };
+    width: 1px;
+    height: 100%;
+    align-self: flex-end;
+`
+
+
 const NAV_BAR_STYLE = `
     background-color: transparent;
     box-sizing: border-box;
@@ -108,6 +135,7 @@ const List = styled.ul`
     width: 100%;
     padding: 0;
     height: 40px;
+
     ${ ListItem } {
         margin: 0 15px;
 
@@ -128,7 +156,7 @@ const TopNavbar = styled.div`
     align-items: center;
     width: 90%;
     max-width: 1200px;
-    height: 74px;
+    height: 75px;
 `
 const BottomNavbar = styled.div`
     ${ NAV_BAR_STYLE }
