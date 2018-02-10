@@ -65,6 +65,7 @@ const LoginWrapper = styled.div`
 `
 
 const Button = styled.button`
+    background-color: transparent;
     width: 75px;
     cursor: pointer;
     padding: 0;
