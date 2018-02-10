@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import styled from "styled-components"
 
-import Header from "../../components/Header"
+import Hero from "../../components/Hero"
 
 class Home extends Component {
   render() {
     return (
       <HomeView>
                 
-        <Header />
+        <Hero />
 
         <ContactSection>
           <Title>Contact Section</Title>

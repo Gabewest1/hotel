@@ -1,19 +1,20 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
+import  { PRIMARY_COLOR, SECONDARY_COLOR, TERTIARY_COLOR} from "../../constants/index"
 
 const BookRoomButton = styled(Link)`
-    border: solid thin #4c0505;
-    border-radius: 1px;
+    border: solid thin ${ TERTIARY_COLOR };
+    border-radius: 2px;
     background: #fdfdfd;
     text-decoration: none;
-    letter-spacing: 0.16rem;
+    letter-spacing: 3px;
     text-transform: uppercase;
     color: #4c0505;
     display: inline-block;
     width: 252px;
-    height: 33px;
-    font-size: 13px;
+    height: 31px;
+    font-size: 12px;
     font-weight: bold;
     display: flex;
     justify-content: center;
