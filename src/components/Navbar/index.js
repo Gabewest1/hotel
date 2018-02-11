@@ -5,9 +5,13 @@ import { Link } from "react-router-dom"
 import  { PRIMARY_COLOR, SECONDARY_COLOR, TERTIARY_COLOR} from "../../constants/index"
 
 class Navbar extends React.Component {
+    state = {
+        isExpanded: false
+    }
+
     render() {
-        console.log("STYLE:", this.props.style)
-        
+        const { isExpanded } = this.state
+
         return (
             <NavbarView { ...this.props }>
 
@@ -27,33 +31,27 @@ class Navbar extends React.Component {
                             <CheckAvailabilityButton />
                         </HideOnMobile>
 
-                        <MenuIcon src="/assets/images/menu.svg" />
+                        <MenuIcon
+                            src="/assets/images/menu.svg"
+                            onClick={() => this.setState({ isExpanded: !isExpanded })}    
+                        />
                     </Wrapper>
                 </TopNavbar>
 
 
-                <BottomNavbar>
-                    <div style={{width: '90%', maxWidth: 1200}}>
-                        <List>
-                            <ListItem><Link to="/contact">Contact Us</Link></ListItem>
-                            <ListItem><Link to="/events">Meetings &amp; Events</Link></ListItem>
-                            <ListItem><Link to="/rooms">Rooms &amp; Suites</Link></ListItem>
-                            <ListItem><Link to="/services">Contact Us</Link></ListItem>
-                            <ListItem><Link to="">Services</Link></ListItem>
-                            <ListItem><Link to="">Contact Us</Link></ListItem>
-                            <ListItem><Link to="">Rooms</Link></ListItem>
-                        </List>
-                    </div>
+                <BottomNavbar isExpanded={ isExpanded }>
+                    <List>
+                        <ListItem><Link to="/contact">Contact Us</Link></ListItem>
+                        <ListItem><Link to="/events">Meetings &amp; Events</Link></ListItem>
+                        <ListItem><Link to="/rooms">Rooms &amp; Suites</Link></ListItem>
+                        <ListItem><Link to="/services">Contact Us</Link></ListItem>
+                        <ListItem><Link to="">Services</Link></ListItem>
+                        <ListItem><Link to="">Contact Us</Link></ListItem>
+                        <ListItem><Link to="">Rooms</Link></ListItem>
+                    </List>
                 </BottomNavbar>
             </NavbarView>
         )
-    }
-    _renderMobileNavbar = () => {
-
-    }
-
-    _renderNavbar = () => {
-
     }
 }
 
@@ -70,8 +68,6 @@ const MenuIcon = styled.img`
     }
 `
 const Wrapper = styled.div`
-    // height: 24px;
-    // width: 420px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -86,7 +82,6 @@ const LoginWrapper = styled.div`
 
 const Button = styled.button`
     background-color: transparent;
-    // width: 75px;
     cursor: pointer;
     padding: 0;
     margin: 0;
@@ -220,23 +215,26 @@ const ListItem = styled.li`
 const List = styled.ul`
     display: flex;
     list-style: none;
-    height: 70px;
     align-items: center;
     justify-content: space-between;
     margin: 0;
-    width: 100%;
+    width: 90%;
+    max-width: 1300px;
     padding: 0;
-    height: 40px;
+    
+    @media (min-width: 768px) { 
+        height: 40px;
 
-    ${ ListItem } {
-        margin: 0 15px;
-
-        &:first-child {
-            margin-left: 0;
-        }
-        
-        &:last-child {
-            margin-right: 0;
+        ${ ListItem } {
+            margin: 0 15px;
+    
+            &:first-child {
+                margin-left: 0;
+            }
+            
+            &:last-child {
+                margin-right: 0;
+            }
         }
     }
 `
@@ -252,15 +250,25 @@ const TopNavbar = styled.div`
 `
 const BottomNavbar = styled.div`
     ${ NAV_BAR_STYLE }
+    display: ${({ isExpanded }) => isExpanded ? "block" : "none"};    
+    height: ${({ isExpanded }) => isExpanded ? "100%" : "0%"};
     background-color: ${ BOTTOM_NAV_BACKGROUND };
-    display: none;
-    align-items: center;
-    justify-content: center;
     width: 100%;
-    height: 35px;
-    
+
+    @media (max-width: 767px) {
+        ${ List } {
+            margin: initial;
+            display: block;
+            width: 100%;
+        }
+    }
+
     @media (min-width: 768px) {
         display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 35px;
     }
 `
 const NavbarView = styled.div`
