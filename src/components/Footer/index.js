@@ -48,6 +48,9 @@ class Footer extends React.Component {
         )
     }
 }
+const TABLET_BREAKPOINT = 700
+const DESKTOP_BREAKPOINT = 1024
+
 const Icon = styled.a`
     width: 30px;
     height: 30px;
@@ -58,7 +61,11 @@ const Copyright = styled.div`
     font-size: 14px;
     letter-spacing: 1px;
     font-family: 'Anton', sans-serif;
-    margin-top: 40px;
+    margin-top: 30px;
+
+    @media (max-width: ${ TABLET_BREAKPOINT - 1 }px) {
+        margin-top: 10px;
+    }
 `
 
 const List = styled.ul`
@@ -69,21 +76,26 @@ const List = styled.ul`
     list-style: none; 
     padding: 5px 0;
     margin: 0;
-    width: 80%;
     height: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     position: relative;
+    
+    @media (min-width: ${ TABLET_BREAKPOINT }px) {
+        width: 350px;
+    }
 
-    @media (min-width: 1024px) {
+    @media (min-width: ${ DESKTOP_BREAKPOINT }px) {
         flex-direction: row;
+        width: 500px;
     }
 ` 
     
 const ListItem = styled.li`
     padding: 5px 0;
+    white-space: nowrap;
 
     a {
         text-decoration: none;  
@@ -99,7 +111,7 @@ const Line = styled.div`
     position: relative;
 `
 const LineAbove = styled(Line)`
-    @media (min-width: 1024px) {
+    @media (min-width: ${ DESKTOP_BREAKPOINT }px) {
         display: none;
     }
 `
@@ -113,8 +125,10 @@ const Links = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    flex: 0 0 52%;   
+
+    @media (max-width: ${ TABLET_BREAKPOINT - 1 }px) {
+        width: 90%;
+    }
 `
 const SocialMedia = styled.div`
     display: flex;
@@ -127,14 +141,19 @@ const ItemsContainer = styled.div`
     width: 100%;
     max-width: 1200px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
     position: relative;
+
+    @media (min-width: ${ TABLET_BREAKPOINT }px) {
+        flex-direction: row;
+    }
 `
 const HideOnMobile = styled.div`
     display: none;
 
-    @media (min-width: 1024px) {
+    @media (min-width: ${ DESKTOP_BREAKPOINT }px) {
         display: block;
     }
 `
@@ -147,14 +166,17 @@ const LogoWrapper = styled.div`
         position: relative;
         top: 10px;
     }
-    @media (min-width: 1024px) {
+    @media (max-width: ${ TABLET_BREAKPOINT - 1 }px) {
+        margin-bottom: 45px;
+    }
+    @media (min-width: ${ DESKTOP_BREAKPOINT }px) {
         ${ SocialMedia } {
             display: none;
         }
     }
 `
 const ShowOnMobile = styled.div`
-    @media (min-width: 1024px) {
+    @media (min-width: ${ DESKTOP_BREAKPOINT }px) {
         display: none;
     }
 `
@@ -166,6 +188,11 @@ const FooterView = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    @media (max-width: ${ TABLET_BREAKPOINT - 1 }px) {
+        padding-top: 40px;
+        padding-bottom: 15px;
+    }
 `
 const SocialMediaView = () => (
     <SocialMedia>
