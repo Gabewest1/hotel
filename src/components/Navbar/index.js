@@ -17,14 +17,14 @@ class Navbar extends React.Component {
                     <Link to="/">
                         <Logo src="/assets/images/logo5.svg" />
                     </Link>
-                    <Wrapper>
+                    <Spacer>
                         <LoginWrapper>
-                            <Button>Log In</Button>
+                            <LoginButtons>Log In</LoginButtons>
                             <Line />
-                            <Button>Sign Up</Button>
+                            <LoginButtons>Sign Up</LoginButtons>
                         </LoginWrapper>
                         <CheckAvailabilityButton />
-                    </Wrapper>
+                    </Spacer>
                 </TopNavbar>
 
 
@@ -50,9 +50,9 @@ const LINK_COLOR = "#fcfcfc;"
 const BOTTOM_NAV_BACKGROUND = SECONDARY_COLOR
 const TOP_NAV_BACKGROUND = PRIMARY_COLOR
 
-const Wrapper = styled.div`
+const Spacer = styled.div`
     // height: 24px;
-    width: 420px;
+    width: 354px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -64,9 +64,9 @@ const LoginWrapper = styled.div`
     justify-content: space-between;
 `
 
-const Button = styled.button`
+const LoginButtons = styled.button`
     background-color: transparent;
-    width: 75px;
+    width: 57px;
     cursor: pointer;
     padding: 0;
     margin: 0;
@@ -111,11 +111,12 @@ const Button = styled.button`
     // font-family: 'Oxygen', sans-serif;
     font-family: 'Josefin Sans', sans-serif;
     // font-family: 'Libre Baskerville', serif;
-
-    font-size: 13px;
     // font-weight: bold;    
     // text-transform: uppercase;
     // letter-spacing: 1px;
+    font-size: 12px;
+    position: relative;
+    top: 3px;
     &:hover {
         color: ${ TERTIARY_COLOR };
     }
@@ -124,10 +125,9 @@ const Button = styled.button`
 const Line = styled.div`
     background-color: ${ SECONDARY_COLOR };
     width: 1px;
-    height: 23px;
+    height: 22px;
     position: relative;
-    right: 3px;
-    bottom: 1px;
+    right: 2px;
 `
 
 
@@ -183,7 +183,7 @@ const ListItem = styled.li`
         color: ${ LINK_COLOR };
         text-decoration: none;
         &:hover { 
-            // text-decoration: underline;
+            text-decoration: underline;
             color: #ed1616;
             font-weight: bold;
         }
@@ -220,7 +220,7 @@ const TopNavbar = styled.div`
     align-items: center;
     width: 90%;
     max-width: 1200px;
-    height: 75px;
+    height: 57px;
 `
 const BottomNavbar = styled.div`
     ${ NAV_BAR_STYLE }

@@ -32,7 +32,7 @@ const Overlay = styled.div`
     top: 0;
     left: 0;
     background: rgba(0,0,0,.4);
-    height: 100%;
+    height: 100vh;
     width: 100%;
 `
 const Wrapper = styled.div`

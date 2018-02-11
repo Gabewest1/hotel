@@ -8,12 +8,12 @@ const BookRoomButton = styled(Link)`
     border-radius: 2px;
     background: #fdfdfd;
     text-decoration: none;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     color: #4c0505;
     display: inline-block;
-    width: 252px;
-    height: 31px;
+    width: 220px;
+    height: 27px;
     font-size: 12px;
     font-weight: bold;
     display: flex;
