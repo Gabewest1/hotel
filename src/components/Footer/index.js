@@ -41,7 +41,9 @@ class Footer extends React.Component {
                     </HideOnMobile>
                 </ItemsContainer>
 
-                <Copyright>© Hotel Concepts 2018</Copyright>                    
+                <ShowOnMobile>
+                    <Copyright>© Hotel Concepts 2018</Copyright>                    
+                </ShowOnMobile>
             </FooterView>
         )
     }
@@ -52,12 +54,11 @@ const Icon = styled.a`
 `
 
 const Copyright = styled.div`
-    width: 100%;
-    position: relative;
     color: #635c45;    
     font-size: 14px;
     letter-spacing: 1px;
     font-family: 'Anton', sans-serif;
+    margin-top: 40px;
 `
 
 const List = styled.ul`
@@ -123,13 +124,12 @@ const SocialMedia = styled.div`
 
 const ItemsContainer = styled.div`
     height: 50%;
-    width: 88%;
+    width: 100%;
     max-width: 1200px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     position: relative;
-    bottom: 10px;
 `
 const HideOnMobile = styled.div`
     display: none;
@@ -153,11 +153,15 @@ const LogoWrapper = styled.div`
         }
     }
 `
+const ShowOnMobile = styled.div`
+    @media (min-width: 1024px) {
+        display: none;
+    }
+`
 const FooterView = styled.div` 
     color: white;
-    width: 100%;
-    // height: 220px;
     background-color: ${ SECONDARY_COLOR };
+    padding: 60px 40px;
     display: flex;
     justify-content: center;
     align-items: center;
