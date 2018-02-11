@@ -260,6 +260,11 @@ const BottomNavbar = styled.div`
             margin: initial;
             display: block;
             width: 100%;
+            text-align: center;
+            
+            ${ ListItem } {
+                padding: 10px 0;
+            }
         }
     }
 
@@ -269,6 +274,10 @@ const BottomNavbar = styled.div`
         justify-content: center;
         width: 100%;
         height: 35px;
+
+        ${ List } {
+            width: 100%;
+        }
     }
 `
 const NavbarView = styled.div`
