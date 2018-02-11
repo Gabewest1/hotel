@@ -18,12 +18,16 @@ class Navbar extends React.Component {
                         <Logo src="/assets/images/logo5.svg" />
                     </Link>
                     <Wrapper>
-                        <LoginWrapper>
-                            <Button>Log In</Button>
-                            <Line />
-                            <Button>Sign Up</Button>
-                        </LoginWrapper>
-                        <CheckAvailabilityButton />
+                        <HideOnMobile>
+                            <LoginWrapper>
+                                <Button>Log In</Button>
+                                <Line />
+                                <Button>Sign Up</Button>
+                            </LoginWrapper>
+                            <CheckAvailabilityButton />
+                        </HideOnMobile>
+
+                        <MenuIcon src="/assets/images/menu.svg" />
                     </Wrapper>
                 </TopNavbar>
 
@@ -44,29 +48,45 @@ class Navbar extends React.Component {
             </NavbarView>
         )
     }
+    _renderMobileNavbar = () => {
+
+    }
+
+    _renderNavbar = () => {
+
+    }
 }
 
 const LINK_COLOR = "#fcfcfc;"
 const BOTTOM_NAV_BACKGROUND = SECONDARY_COLOR
 const TOP_NAV_BACKGROUND = PRIMARY_COLOR
 
+
+const MenuIcon = styled.img`
+    width: 33px;
+
+    @media (min-width: 768px) {
+        display: none;
+    }
+`
 const Wrapper = styled.div`
     // height: 24px;
-    width: 420px;
+    // width: 420px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
 `
 
 const LoginWrapper = styled.div`
-    // width: 170px;
+    position: relative;
+    right: 15px;
     display: flex;
     justify-content: space-between;
 `
 
 const Button = styled.button`
     background-color: transparent;
-    width: 75px;
+    // width: 75px;
     cursor: pointer;
     padding: 0;
     margin: 0;
@@ -128,6 +148,7 @@ const Line = styled.div`
     position: relative;
     right: 3px;
     bottom: 1px;
+    margin: 10px;
 `
 
 
@@ -169,6 +190,13 @@ const BookRoomButton = styled(Link)`
 `
 const BookRoomButtonContainer = styled.div`
 
+`
+const HideOnMobile = styled.div`
+    display: none;
+
+    @media (min-width: 768px) {
+        display: flex;
+    }
 `
 const Logo = styled.img`
     max-width: 250px;
@@ -225,11 +253,15 @@ const TopNavbar = styled.div`
 const BottomNavbar = styled.div`
     ${ NAV_BAR_STYLE }
     background-color: ${ BOTTOM_NAV_BACKGROUND };
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 35px;
+    
+    @media (min-width: 768px) {
+        display: flex;
+    }
 `
 const NavbarView = styled.div`
     background:  ${ TOP_NAV_BACKGROUND  };
