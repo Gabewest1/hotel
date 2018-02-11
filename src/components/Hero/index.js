@@ -35,7 +35,7 @@ const Overlay = styled.div`
     top: 0;
     left: 0;
     background: rgba(0,0,0,.4);
-    height: 100vh;
+    height: 100%;
     width: 100%;
 `
 const Wrapper = styled.div`
@@ -102,13 +102,13 @@ const Description = styled.p`
 `
 const HeroView = styled.div`
     color: #efefef;
-    height: 100vh;
-    max-height: 600px;
+    height: 600px;
     background: url(/assets/images/home_hero3.png) no-repeat;
     background-size: cover;
     background-position: 86% center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
 `
 export default Hero
