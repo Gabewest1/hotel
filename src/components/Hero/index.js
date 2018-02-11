@@ -22,9 +22,12 @@ class Hero extends React.Component {
 
 const SPACING = `
     position: relative;
-    top: 175px;
-    // left: 50px;
-    margin: 0;
+
+    @media (min-width: 768px) {
+        top: 175px;
+        // left: 50px;
+        margin: 0;
+    }
 `
 
 const Overlay = styled.div`
@@ -106,5 +109,6 @@ const HeroView = styled.div`
     background-position: 86% center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 `
 export default Hero

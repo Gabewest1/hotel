@@ -5,9 +5,13 @@ import { Link } from "react-router-dom"
 import  { PRIMARY_COLOR, SECONDARY_COLOR, TERTIARY_COLOR} from "../../constants/index"
 
 class Navbar extends React.Component {
+    state = {
+        isExpanded: false
+    }
+
     render() {
-        console.log("STYLE:", this.props.style)
-        
+        const { isExpanded } = this.state
+
         return (
             <NavbarView { ...this.props }>
 
@@ -17,29 +21,34 @@ class Navbar extends React.Component {
                     <Link to="/">
                         <Logo src="/assets/images/logo5.svg" />
                     </Link>
-                    <Spacer>
-                        <LoginWrapper>
-                            <LoginButtons>Log In</LoginButtons>
-                            <Line />
-                            <LoginButtons>Sign Up</LoginButtons>
-                        </LoginWrapper>
-                        <CheckAvailabilityButton />
-                    </Spacer>
+                    <Wrapper>
+                        <HideOnMobile>
+                            <LoginWrapper>
+                                <LoginButtons>Log In</LoginButtons>
+                                <Line />
+                                <LoginButtons>Sign Up</LoginButtons>
+                            </LoginWrapper>
+                            <CheckAvailabilityButton />
+                        </HideOnMobile>
+
+                        <MenuIcon
+                            src="/assets/images/menu.svg"
+                            onClick={() => this.setState({ isExpanded: !isExpanded })}    
+                        />
+                    </Wrapper>
                 </TopNavbar>
 
 
-                <BottomNavbar>
-                    <div style={{width: '90%', maxWidth: 1200}}>
-                        <List>
-                            <ListItem><Link to="/contact">Contact Us</Link></ListItem>
-                            <ListItem><Link to="/events">Meetings &amp; Events</Link></ListItem>
-                            <ListItem><Link to="/rooms">Rooms &amp; Suites</Link></ListItem>
-                            <ListItem><Link to="/services">Contact Us</Link></ListItem>
-                            <ListItem><Link to="">Services</Link></ListItem>
-                            <ListItem><Link to="">Contact Us</Link></ListItem>
-                            <ListItem><Link to="">Rooms</Link></ListItem>
-                        </List>
-                    </div>
+                <BottomNavbar isExpanded={ isExpanded }>
+                    <List>
+                        <ListItem><Link to="/contact">Contact Us</Link></ListItem>
+                        <ListItem><Link to="/events">Meetings &amp; Events</Link></ListItem>
+                        <ListItem><Link to="/rooms">Rooms &amp; Suites</Link></ListItem>
+                        <ListItem><Link to="/services">Contact Us</Link></ListItem>
+                        <ListItem><Link to="">Services</Link></ListItem>
+                        <ListItem><Link to="">Contact Us</Link></ListItem>
+                        <ListItem><Link to="">Rooms</Link></ListItem>
+                    </List>
                 </BottomNavbar>
             </NavbarView>
         )
@@ -50,23 +59,29 @@ const LINK_COLOR = "#fcfcfc;"
 const BOTTOM_NAV_BACKGROUND = SECONDARY_COLOR
 const TOP_NAV_BACKGROUND = PRIMARY_COLOR
 
-const Spacer = styled.div`
-    // height: 24px;
-    width: 354px;
+
+const MenuIcon = styled.img`
+    width: 33px;
+
+    @media (min-width: 768px) {
+        display: none;
+    }
+`
+const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
 `
 
 const LoginWrapper = styled.div`
-    // width: 170px;
+    position: relative;
+    right: 15px;
     display: flex;
     justify-content: space-between;
 `
 
 const LoginButtons = styled.button`
     background-color: transparent;
-    width: 57px;
     cursor: pointer;
     padding: 0;
     margin: 0;
@@ -127,7 +142,9 @@ const Line = styled.div`
     width: 1px;
     height: 22px;
     position: relative;
-    right: 2px;
+    right: 3px;
+    bottom: 1px;
+    margin: 10px;
 `
 
 
@@ -170,6 +187,13 @@ const BookRoomButton = styled(Link)`
 const BookRoomButtonContainer = styled.div`
 
 `
+const HideOnMobile = styled.div`
+    display: none;
+
+    @media (min-width: 768px) {
+        display: flex;
+    }
+`
 const Logo = styled.img`
     max-width: 250px;
 `
@@ -192,23 +216,26 @@ const ListItem = styled.li`
 const List = styled.ul`
     display: flex;
     list-style: none;
-    height: 70px;
     align-items: center;
     justify-content: space-between;
     margin: 0;
-    width: 100%;
+    width: 90%;
+    max-width: 1300px;
     padding: 0;
-    height: 40px;
+    
+    @media (min-width: 768px) { 
+        height: 40px;
 
-    ${ ListItem } {
-        margin: 0 15px;
-
-        &:first-child {
-            margin-left: 0;
-        }
-        
-        &:last-child {
-            margin-right: 0;
+        ${ ListItem } {
+            margin: 0 15px;
+    
+            &:first-child {
+                margin-left: 0;
+            }
+            
+            &:last-child {
+                margin-right: 0;
+            }
         }
     }
 `
@@ -224,12 +251,35 @@ const TopNavbar = styled.div`
 `
 const BottomNavbar = styled.div`
     ${ NAV_BAR_STYLE }
+    display: ${({ isExpanded }) => isExpanded ? "block" : "none"};    
+    height: ${({ isExpanded }) => isExpanded ? "100%" : "0%"};
     background-color: ${ BOTTOM_NAV_BACKGROUND };
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 100%;
-    height: 35px;
+
+    @media (max-width: 767px) {
+        ${ List } {
+            margin: initial;
+            display: block;
+            width: 100%;
+            text-align: center;
+            
+            ${ ListItem } {
+                padding: 10px 0;
+            }
+        }
+    }
+
+    @media (min-width: 768px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 35px;
+
+        ${ List } {
+            width: 100%;
+        }
+    }
 `
 const NavbarView = styled.div`
     background:  ${ TOP_NAV_BACKGROUND  };
