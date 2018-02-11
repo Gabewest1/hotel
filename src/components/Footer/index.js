@@ -9,12 +9,14 @@ class Footer extends React.Component {
         return (
             <FooterView>
                 <ItemsContainer>
+
                     <LogoWrapper>
-                        <_Link to="/">
+                        <Link to="/">
                             <Logo src="/assets/images/logo5alt.svg" />
-                        </_Link>
+                        </Link>
                         <SocialMediaView />                    
                     </LogoWrapper>
+
                     <Links>
 
                         <LineAbove />
@@ -28,13 +30,18 @@ class Footer extends React.Component {
 
                         <Line />
 
-                        <Copyright>© Hotel Concepts 2018</Copyright>
+                        <HideOnMobile>
+                            <Copyright>© Hotel Concepts 2018</Copyright>
+                        </HideOnMobile>
+
                     </Links>
                     
                     <HideOnMobile>
                         <SocialMediaView />
                     </HideOnMobile>
                 </ItemsContainer>
+
+                <Copyright>© Hotel Concepts 2018</Copyright>                    
             </FooterView>
         )
     }
@@ -47,7 +54,6 @@ const Icon = styled.a`
 const Copyright = styled.div`
     width: 100%;
     position: relative;
-    top: 65px;
     color: #635c45;    
     font-size: 14px;
     letter-spacing: 1px;
@@ -60,7 +66,7 @@ const List = styled.ul`
     font-size: 13px;
     letter-spacing: 1px;
     list-style: none; 
-    padding: 0;
+    padding: 5px 0;
     margin: 0;
     width: 80%;
     height: 50%;
@@ -69,7 +75,6 @@ const List = styled.ul`
     justify-content: space-between;
     align-items: center;
     position: relative;
-    bottom: 10px;
 
     @media (min-width: 1024px) {
         flex-direction: row;
@@ -77,6 +82,8 @@ const List = styled.ul`
 ` 
     
 const ListItem = styled.li`
+    padding: 5px 0;
+
     a {
         text-decoration: none;  
         color: #635c45;
@@ -89,7 +96,6 @@ const Line = styled.div`
     width: 100%;
     background-color: #635c45;
     position: relative;
-    top: 10px;
 `
 const LineAbove = styled(Line)`
     @media (min-width: 1024px) {
@@ -101,15 +107,6 @@ const Logo = styled.img`
     max-width: 250px;
 `
 
-const _Link = styled(Link)`
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex: 0 0 20%;       
-    position: relative;
-    right: 45px;
-`
-
 const Links = styled.div`
     text-align: center;
     display: flex;
@@ -119,12 +116,9 @@ const Links = styled.div`
     flex: 0 0 52%;   
 `
 const SocialMedia = styled.div`
-    width: 100%;
     display: flex;
     justify-content: space-between;
-    position: relative;
-    left: 34px;
-    flex: 0 0 20%;           
+    width: 120px;
 `
 
 const ItemsContainer = styled.div`
@@ -133,7 +127,7 @@ const ItemsContainer = styled.div`
     max-width: 1200px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     position: relative;
     bottom: 10px;
 `
@@ -145,8 +139,14 @@ const HideOnMobile = styled.div`
     }
 `
 const LogoWrapper = styled.div`
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+    ${ SocialMedia } {
+        position: relative;
+        top: 10px;
+    }
     @media (min-width: 1024px) {
         ${ SocialMedia } {
             display: none;
@@ -156,12 +156,12 @@ const LogoWrapper = styled.div`
 const FooterView = styled.div` 
     color: white;
     width: 100%;
-    height: 220px;
+    // height: 220px;
     background-color: ${ SECONDARY_COLOR };
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
 `
 const SocialMediaView = () => (
     <SocialMedia>
@@ -171,8 +171,8 @@ const SocialMediaView = () => (
         <Icon>
             <Logo src="/assets/images/twitter.svg" />
         </Icon>
-            <Logo src="/assets/images/Instagram.svg" />
         <Icon>
+            <Logo src="/assets/images/Instagram.svg" />
         </Icon>
     </SocialMedia>
 )
