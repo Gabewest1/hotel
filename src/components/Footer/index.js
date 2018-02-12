@@ -45,11 +45,10 @@ const Icon = styled.a`
 `
 
 const Copyright = styled.div`
-// background-color: green;
     width: 100%;
     position: relative;
     top: 65px;
-    color: #635c45;    
+    color: #896d4bff;    
     font-size: 14px;
     letter-spacing: 1px;
     font-family: 'Rammetto One', cursive;
@@ -94,15 +93,14 @@ const Copyright = styled.div`
 `
 
 const List = styled.ul`
-// background-color: red;
     font-family: 'Montserrat', sans-serif; 
     text-transform: uppercase;
-    font-size: 13px;
-    letter-spacing: 1px;
+    font-size: 12px;
+    letter-spacing: 2px;
     list-style: none; 
     padding: 0;
     margin: 0;
-    width: 80%;
+    width: 90%;
     height: 50%;
     display: flex;
     justify-content: space-between;
@@ -114,8 +112,8 @@ const List = styled.ul`
 const ListItem = styled.li`
     a {
         text-decoration: none;  
-        color: #635c45;
-        font-weight: bold;
+        color: #af936cff;
+        // font-weight: bold;
     }
 `
 

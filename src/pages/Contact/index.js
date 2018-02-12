@@ -16,7 +16,6 @@ class Contact extends Component {
 }
 
 const ContactView = styled.div`
-
 `
 
 export default Contact
