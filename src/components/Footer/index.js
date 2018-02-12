@@ -9,36 +9,48 @@ class Footer extends React.Component {
         return (
             <FooterView>
                 <ItemsContainer>
-                    <_Link to="/">
-                        <Logo src="/assets/images/logo5alt.svg" />
-                    </_Link>
+
+                    <LogoWrapper>
+                        <Link to="/">
+                            <Logo src="/assets/images/logo5alt.svg" />
+                        </Link>
+                        <SocialMediaView />                    
+                    </LogoWrapper>
+
                     <Links>
+
+                        <LineAbove />
+
                         <List>
                             <ListItem><Link to="">Contact Us</Link></ListItem>
                             <ListItem><Link to="">Meetings &amp; Events</Link></ListItem>
                             <ListItem><Link to="">Rooms &amp; Suites</Link></ListItem>
                             <ListItem><Link to="">Rooms</Link></ListItem>
                         </List>
-                        <Line>
-                        </Line>
-                        <Copyright>© Hotel Concepts 2018</Copyright>
+
+                        <Line />
+
+                        <HideOnMobile>
+                            <Copyright>© Hotel Concepts 2018</Copyright>
+                        </HideOnMobile>
+
                     </Links>
-                    <SocialMedia>
-                        <Icon>
-                            <Logo src="/assets/images/facebook.svg" />
-                        </Icon>
-                        <Icon>
-                            <Logo src="/assets/images/twitter.svg" />
-                        </Icon>
-                            <Logo src="/assets/images/Instagram.svg" />
-                        <Icon>
-                        </Icon>
-                    </SocialMedia>
+                    
+                    <HideOnMobile>
+                        <SocialMediaView />
+                    </HideOnMobile>
                 </ItemsContainer>
+
+                <ShowOnMobile>
+                    <Copyright>© Hotel Concepts 2018</Copyright>                    
+                </ShowOnMobile>
             </FooterView>
         )
     }
 }
+const TABLET_BREAKPOINT = 700
+const DESKTOP_BREAKPOINT = 1024
+
 const Icon = styled.a`
     width: 30px;
     height: 30px;
@@ -51,45 +63,12 @@ const Copyright = styled.div`
     color: #896d4bff;    
     font-size: 14px;
     letter-spacing: 1px;
-    font-family: 'Rammetto One', cursive;
-    font-family: 'Open Sans', sans-serif;
-    font-family: 'Lato', sans-serif;
-    font-family: 'Roboto Condensed', sans-serif;
-    // font-family: 'Montserrat', sans-serif;
-    font-family: 'Oswald', sans-serif;
-    // font-family: 'Slabo 27px', serif;
-    // font-family: 'Source Sans Pro', sans-serif;
-    // font-family: 'Dhurjati', sans-serif;
-    // font-family: 'Raleway', sans-serif;
-    // font-family: 'PT Sans', sans-serif;
-    // font-family: 'Roboto Slab', serif;
-    // font-family: 'Merriweather', serif;
-    // font-family: 'Open Sans Condensed', sans-serif;
-    // font-family: 'Lora', serif;
-    // font-family: 'Ubuntu', sans-serif;
-    // font-family: 'Playfair Display', serif;
-    // font-family: 'Noto Sans', sans-serif;
-    // font-family: 'Poppins', sans-serif;
-    // font-family: 'PT Serif', serif;
-    // font-family: 'Titillium Web', sans-serif;
-    // font-family: 'Arimo', sans-serif;
-    // font-family: 'Muli', sans-serif;
-    // font-family: 'PT Sans Narrow', sans-serif;
-    // font-family: 'Encode Sans', sans-serif;
-    // font-family: 'Noto Serif', serif;
-    // font-family: 'Indie Flower', cursive;
-    // font-family: 'Dosis', sans-serif;
-    // font-family: 'Nunito', sans-serif;
     font-family: 'Anton', sans-serif;
-    // font-family: 'Inconsolata', monospace;
-    // font-family: 'Crimson Text', serif;
-    // font-family: 'Bitter', serif;
-    // font-family: 'Fira Sans', sans-serif;
-    // font-family: 'Alegreya Sans', sans-serif;
-    // font-family: 'Archivo', sans-serif;
-    // font-family: 'Oxygen', sans-serif;
-    // font-family: 'Josefin Sans', sans-serif;
-    // font-family: 'Libre Baskerville', serif;
+    margin-top: 30px;
+
+    @media (max-width: ${ TABLET_BREAKPOINT - 1 }px) {
+        margin-top: 10px;
+    }
 `
 
 const List = styled.ul`
@@ -98,18 +77,30 @@ const List = styled.ul`
     font-size: 12px;
     letter-spacing: 2px;
     list-style: none; 
-    padding: 0;
+    padding: 5px 0;
     margin: 0;
     width: 90%;
     height: 50%;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     position: relative;
-    bottom: 10px;
+    
+    @media (min-width: ${ TABLET_BREAKPOINT }px) {
+        width: 350px;
+    }
+
+    @media (min-width: ${ DESKTOP_BREAKPOINT }px) {
+        flex-direction: row;
+        width: 500px;
+    }
 ` 
     
 const ListItem = styled.li`
+    padding: 5px 0;
+    white-space: nowrap;
+
     a {
         text-decoration: none;  
         color: #af936cff;
@@ -122,22 +113,15 @@ const Line = styled.div`
     width: 100%;
     background-color: #635c45;
     position: relative;
-    top: 10px;
 `
-
+const LineAbove = styled(Line)`
+    @media (min-width: ${ DESKTOP_BREAKPOINT }px) {
+        display: none;
+    }
+`
 
 const Logo = styled.img`
     max-width: 250px;
-`
-
-const _Link = styled(Link)`
-// background-color: yellow;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex: 0 0 20%;       
-    position: relative;
-    right: 45px;
 `
 
 const Links = styled.div`
@@ -145,41 +129,87 @@ const Links = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    flex: 0 0 52%;   
+
+    @media (max-width: ${ TABLET_BREAKPOINT - 1 }px) {
+        width: 90%;
+    }
 `
 const SocialMedia = styled.div`
-// background-color: blue;
-    width: 100%;
     display: flex;
     justify-content: space-between;
-    position: relative;
-    left: 34px;
-    flex: 0 0 20%;           
+    width: 120px;
 `
 
 const ItemsContainer = styled.div`
-// background-color: purple;
     height: 50%;
-    width: 88%;
+    width: 100%;
     max-width: 1200px;
     display: flex;
-    // flex-direction: column;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     position: relative;
-    bottom: 10px;
-`
 
+    @media (min-width: ${ TABLET_BREAKPOINT }px) {
+        flex-direction: row;
+    }
+`
+const HideOnMobile = styled.div`
+    display: none;
+
+    @media (min-width: ${ DESKTOP_BREAKPOINT }px) {
+        display: block;
+    }
+`
+const LogoWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    ${ SocialMedia } {
+        position: relative;
+        top: 10px;
+    }
+    @media (max-width: ${ TABLET_BREAKPOINT - 1 }px) {
+        margin-bottom: 45px;
+    }
+    @media (min-width: ${ DESKTOP_BREAKPOINT }px) {
+        ${ SocialMedia } {
+            display: none;
+        }
+    }
+`
+const ShowOnMobile = styled.div`
+    @media (min-width: ${ DESKTOP_BREAKPOINT }px) {
+        display: none;
+    }
+`
 const FooterView = styled.div` 
     color: white;
-    width: 100%;
-    height: 220px;
     background-color: ${ SECONDARY_COLOR };
+    padding: 60px 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
+
+    @media (max-width: ${ TABLET_BREAKPOINT - 1 }px) {
+        padding-top: 40px;
+        padding-bottom: 15px;
+    }
 `
+const SocialMediaView = () => (
+    <SocialMedia>
+        <Icon>
+            <Logo src="/assets/images/facebook.svg" />
+        </Icon>
+        <Icon>
+            <Logo src="/assets/images/twitter.svg" />
+        </Icon>
+        <Icon>
+            <Logo src="/assets/images/Instagram.svg" />
+        </Icon>
+    </SocialMedia>
+)
 
 export default Footer
