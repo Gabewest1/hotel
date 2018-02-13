@@ -59,15 +59,14 @@ const Icon = styled.a`
 const Copyright = styled.div`
     width: 100%;
     position: relative;
-    top: 65px;
+    top: 45px;
     color: #896d4bff;    
     font-size: 14px;
     letter-spacing: 1px;
     font-family: 'Anton', sans-serif;
-    margin-top: 30px;
 
     @media (max-width: ${ TABLET_BREAKPOINT - 1 }px) {
-        margin-top: 10px;
+        // margin-top: 10px;
     }
 `
 
@@ -193,10 +192,6 @@ const FooterView = styled.div`
     align-items: center;
     flex-direction: column;
 
-    @media (max-width: ${ TABLET_BREAKPOINT - 1 }px) {
-        padding-top: 40px;
-        padding-bottom: 15px;
-    }
 `
 const SocialMediaView = () => (
     <SocialMedia>

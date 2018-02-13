@@ -159,15 +159,15 @@ const Logo = styled.img`
 const ListItem = styled.li`
     text-transform: uppercase;
     text-align: center;
-    margin: 0;
     font-size: 11px;
     letter-spacing: 0.14rem;
     font-family: 'Montserrat', sans-serif;
-    width: 200px;
+    width: 100%;
     height: 13px;   
     display: flex;
     align-items: center;
     justify-content: center;
+    white-space: nowrap;
     
     a { 
         width: 100%;
@@ -199,8 +199,8 @@ const List = styled.ul`
         height: 40px;
 
         ${ ListItem } {
-            margin: 0 15px;
-    
+            width: 100%;
+            
             &:first-child {
                 margin-left: 0;
             }
@@ -243,7 +243,6 @@ const BottomNavbar = styled.div`
             ${ ListItem } {
                 font-size: 20px;
                 padding: 10px 0;
-                width: 215px;
                 height: 31px;
             }
         }
