@@ -23,7 +23,7 @@ class Navbar extends React.Component {
                         <Logo src="/assets/images/logo5.svg" />
                     </Link>
                     <Wrapper>
-                        <ShowComponent breakpoint={ FIRST_QUERY() }>
+                        <ShowComponent breakpoint={ FIRST_QUERY() } flex>
                             <LoginWrapper>
                                 <LoginButtons>Log In</LoginButtons>
                                 <Line />
@@ -42,7 +42,11 @@ class Navbar extends React.Component {
 
                 <BottomNavbar isExpanded={ isExpanded }>
                     <List>
-                        <CheckAvailabilityListItem><CheckAvailabilityButton /></CheckAvailabilityListItem>
+                        <ShowComponent breakpoint={[[0, FIRST_QUERY()]]}>
+                            <CheckAvailabilityListItem>
+                                <CheckAvailabilityButton />
+                            </CheckAvailabilityListItem>
+                        </ShowComponent>
                         <ListItem><Link to="/rooms">Rooms &amp; Suites</Link></ListItem>
                         <ListItem><Link to="">Meetings</Link></ListItem>
                         <ListItem><Link to="/events">Events</Link></ListItem>                        

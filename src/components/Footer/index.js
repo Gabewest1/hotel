@@ -31,9 +31,9 @@ class Footer extends React.Component {
 
                         <Line />
 
-                        {/* <ShowComponent breakpoint={ 1024 }>
+                        <ShowComponent breakpoint={ 1024 }>
                             <Copyright>© Hotel Concepts 2018</Copyright>
-                        </ShowComponent> */}
+                        </ShowComponent>
 
                     </Links>
                     
@@ -41,8 +41,8 @@ class Footer extends React.Component {
                         <SocialMediaView />
                     </ShowComponent>
                 </ItemsContainer>
-                {/* breakpoint={[[0, 40], [90, 130], [300, 480]]} */}
-                <ShowComponent >
+
+                <ShowComponent breakpoint={[[0, 1023]]}>
                     <Copyright>© Hotel Concepts 2018</Copyright>                    
                 </ShowComponent>
             </FooterView>
