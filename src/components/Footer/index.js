@@ -2,10 +2,11 @@ import React from "react"
 import styled from "styled-components"
 import  { PRIMARY_COLOR, SECONDARY_COLOR, TERTIARY_COLOR} from "../../constants/index"
 import { Link } from "react-router-dom"
-
+import ShowComponent from "../ShowComponent"
 
 class Footer extends React.Component {
     render() {
+        console.log(ShowComponent)
         return (
             <FooterView>
                 <ItemsContainer>
@@ -30,20 +31,20 @@ class Footer extends React.Component {
 
                         <Line />
 
-                        <HideOnMobile>
+                        {/* <ShowComponent breakpoint={ 1024 }>
                             <Copyright>© Hotel Concepts 2018</Copyright>
-                        </HideOnMobile>
+                        </ShowComponent> */}
 
                     </Links>
                     
-                    <HideOnMobile>
+                    <ShowComponent breakpoint={ 1024 }>
                         <SocialMediaView />
-                    </HideOnMobile>
+                    </ShowComponent>
                 </ItemsContainer>
-
-                <ShowOnMobile>
+                {/* breakpoint={[[0, 40], [90, 130], [300, 480]]} */}
+                <ShowComponent >
                     <Copyright>© Hotel Concepts 2018</Copyright>                    
-                </ShowOnMobile>
+                </ShowComponent>
             </FooterView>
         )
     }
@@ -64,10 +65,11 @@ const Copyright = styled.div`
     font-size: 14px;
     letter-spacing: 1px;
     font-family: 'Anton', sans-serif;
+    // display: none;
 
-    @media (max-width: ${ TABLET_BREAKPOINT - 1 }px) {
-        // margin-top: 10px;
-    }
+    // @media (max-width: ${ TABLET_BREAKPOINT - 1 }px) {
+    //     // margin-top: 10px;
+    // }
 `
 
 const List = styled.ul`
@@ -113,6 +115,7 @@ const Line = styled.div`
     background-color: #635c45;
     position: relative;
 `
+
 const LineAbove = styled(Line)`
     @media (min-width: ${ DESKTOP_BREAKPOINT }px) {
         display: none;
@@ -164,7 +167,7 @@ const LogoWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    
     ${ SocialMedia } {
         position: relative;
         top: 10px;

@@ -3,6 +3,7 @@ import styled from "styled-components"
 import CheckAvailabilityButton from "../CheckAvailabilityButton"
 import { Link } from "react-router-dom"
 import  { PRIMARY_COLOR, SECONDARY_COLOR, TERTIARY_COLOR, FIRST_QUERY} from "../../constants/index"
+import ShowComponent from "../ShowComponent"
 
 class Navbar extends React.Component {
     state = {
@@ -22,14 +23,14 @@ class Navbar extends React.Component {
                         <Logo src="/assets/images/logo5.svg" />
                     </Link>
                     <Wrapper>
-                        <HideOnMobile>
+                        <ShowComponent breakpoint={ FIRST_QUERY() }>
                             <LoginWrapper>
                                 <LoginButtons>Log In</LoginButtons>
                                 <Line />
                                 <LoginButtons>Sign Up</LoginButtons>
                             </LoginWrapper>
                             <CheckAvailabilityButton />
-                        </HideOnMobile>
+                        </ShowComponent>
 
                         <MenuIcon
                             src="/assets/images/menu.svg"
@@ -41,11 +42,12 @@ class Navbar extends React.Component {
 
                 <BottomNavbar isExpanded={ isExpanded }>
                     <List>
+                        <CheckAvailabilityListItem><CheckAvailabilityButton /></CheckAvailabilityListItem>
                         <ListItem><Link to="/rooms">Rooms &amp; Suites</Link></ListItem>
                         <ListItem><Link to="">Meetings</Link></ListItem>
                         <ListItem><Link to="/events">Events</Link></ListItem>                        
-                        <ListItem><Link to="/services">Services</Link></ListItem>
                         <ListItem><Link to="">Something</Link></ListItem>
+                        <ListItem><Link to="/services">Services</Link></ListItem>
                         <ListItem><Link to="">Something</Link></ListItem>
                         <ListItem><Link to="/contact">Contact Us</Link></ListItem>
                     </List>
@@ -176,19 +178,23 @@ const ListItem = styled.li`
         padding: 1em 0em;
         color: ${ LINK_COLOR };
         text-decoration: none;
-
+        
         &:hover { 
             transition: background 0.3s ease-out, opacity 0.3s ease-out, border-color 0.3s ease-out;
             background: linear-gradient(#5e5e5e21, transparent, #5e5e5e21);
             color: #c4b8a7e0;
         }
     }
-`
-const List = styled.ul`
+    `
+
+    const CheckAvailabilityListItem = styled.li`
+    `
+
+
+    const List = styled.ul`
     display: flex;
     list-style: none;
     align-items: center;
-    justify-content: space-between;
     margin: 0;
     width: 90%;
     max-width: 1300px;
@@ -197,21 +203,13 @@ const List = styled.ul`
     
     @media (min-width: ${  FIRST_QUERY(0) }) { 
         height: 40px;
-
+        
         ${ ListItem } {
-            width: 100%;
             
-            &:first-child {
-                margin-left: 0;
-            }
-            
-            &:last-child {
-                margin-right: 0;
-            }
         }
     }
-`
-
+    `
+    
 const TopNavbar = styled.div`
     ${ NAV_BAR_STYLE }
     display: flex;
@@ -228,9 +226,10 @@ const BottomNavbar = styled.div`
     background-color: ${ BOTTOM_NAV_BACKGROUND };
     width: 100%;
     box-shadow: 0 2px 14px 0 rgba(0,0,0,0.15);
-
+    
     @media (max-width: ${ FIRST_QUERY(-1) }) {
         ${ List } {
+            // transition: all .3s ease-in;
             margin: initial;
             display: block;
             width: 100%;
@@ -239,11 +238,29 @@ const BottomNavbar = styled.div`
             align-items: center;
             justify-content: center;
             flex-direction: column;
+            background-color: ${ PRIMARY_COLOR };
             
             ${ ListItem } {
+                // width: 100%;                
                 font-size: 20px;
                 padding: 10px 0;
                 height: 31px;
+                
+                &:first-child {
+                    // margin-left: 0;
+                }
+                
+                &:last-child {
+                    // margin-right: 0;
+                }
+                
+                a {
+                    font-size: 12px;
+                    color: ${ SECONDARY_COLOR };
+                    font-family: helvetica;
+                    text-align: left;
+                    padding-left: 5%;
+                }
             }
         }
     }
@@ -270,5 +287,6 @@ const NavbarView = styled.div`
     position: ${({ match }) => match.isExact ? "absolute" : "relative"};
     z-index: 1;
 `
+
 
 export default Navbar
