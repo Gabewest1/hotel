@@ -16,9 +16,6 @@ class Navbar extends React.Component {
 
         return (
             <NavbarView { ...this.props }>
-
-                <Background />
-
                 <TopNavbar>
                     <Wrapper>
                             <ShowComponent breakpoint={[[0, FIRST_QUERY(-1)]]} fitArea={true}>
@@ -42,7 +39,7 @@ class Navbar extends React.Component {
 
 
                 <BottomNavbar isExpanded={ isExpanded }>
-                    <List>
+                    <List isExpanded={ isExpanded }>
                         <ShowComponent style={{width: '100%', height: '100%'}} breakpoint={[[0, FIRST_QUERY(-1)]]} fitArea={true}>
                             <Spacer>
                                 <CheckAvailabilityListItem>
@@ -68,7 +65,6 @@ const LINK_COLOR = "#ffe5bfe0";
 const BOTTOM_NAV_BACKGROUND = SECONDARY_COLOR
 const TOP_NAV_BACKGROUND = PRIMARY_COLOR
 
-
 const MenuIcon = styled.img`
     width: 33px;
 
@@ -93,26 +89,10 @@ const NAV_BAR_STYLE = `
     box-sizing: border-box;
 `
 
-const Background = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: linear-gradient(#000, #2d2d2d);
-    height: 100%;
-`
-
-const HideOnMobile = styled.div`
-    display: none;
-
-    @media (min-width: ${  FIRST_QUERY(0) }) {
-        display: flex;
-    }
-`
-
 const Logo = styled.img`
 `
 
-const ListItem = styled.div`
+const ListItem = styled.li`
     text-transform: uppercase;
     font-size: 11px;
     letter-spacing: 0.14rem;
@@ -122,6 +102,8 @@ const ListItem = styled.div`
     align-items: center;
     justify-content: center;
     white-space: nowrap;
+    marign: 0;
+    padding: 0;
 
     a { 
         text-align: center;
@@ -150,20 +132,19 @@ const Spacer = styled.div `
 const NeedToRefactor = styled.div`
     width: 100%;
     height: 67px; 
-    `
-    
-    
+`   
 const CheckAvailabilityListItem = styled.div`
     margin-left: 5%;
     width: 90%;
     padding-bottom: 10px;
 `
 
-const List = styled.div`
+const List = styled.ul`
     display: flex;
     justify-content: space-between;
     list-style: none;
     align-items: center;
+    padding: 0;
     margin: 0;
     width: 90%;
     max-width: 1200px;
@@ -171,7 +152,6 @@ const List = styled.div`
 
     @media (min-width: ${  FIRST_QUERY(0) }) { 
         height: 40px;
-        
     }
 `
     
@@ -186,13 +166,17 @@ const TopNavbar = styled.div`
 `
 const BottomNavbar = styled.div`
     ${ NAV_BAR_STYLE }
-    display: ${({ isExpanded }) => isExpanded ? "block" : "none"};    
-    height: ${({ isExpanded }) => isExpanded ? "100%" : "0%"};
     background-color: ${ BOTTOM_NAV_BACKGROUND };
+    height: ${({ isExpanded }) => isExpanded ? "461px" : "0px" };
     width: 90%;
     box-shadow: 0 2px 14px 0 rgba(0,0,0,0.15);
-    
+    overflow: hidden;
+    transition: height .5s ease-in-out;
+
     @media (max-width: ${ FIRST_QUERY(-1) }) {
+        margin-bottom: ${({ isExpanded }) => isExpanded ? "30px" : "0"};
+        background-color: transparent;
+
         ${ List } {
             border-top: #dcdcdc 1px solid;
             display: block;
@@ -206,7 +190,6 @@ const BottomNavbar = styled.div`
             
             ${ ListItem } {
                 align-self: flex-start;
-                // width: 100%;
                 font-size: 20px;
                 padding: 13px 0;
                 padding-left: 7%;
@@ -242,7 +225,7 @@ const BottomNavbar = styled.div`
         width: 100%;
         height: 35px;
 
-        ${ List } {
+        ${ ListItem } {
             width: 90%;
             max-width: 1176px;
         }
@@ -253,7 +236,6 @@ const NavbarView = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    // justify-content: space-between;
     width: 100%;
     position: ${({ match }) => match.isExact ? "absolute" : "relative"};
     z-index: 1;
