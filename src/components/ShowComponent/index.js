@@ -16,9 +16,11 @@ class ShowComponent extends React.Component {
 let DISPLAY = "block"
 
 const ShowComponentView = styled.div`
+
     display: none;
+
     ${({ flex }) => DISPLAY = flex ? "flex" : "block"};
-    ${({ breakpoint }) => makeBreakpoint(breakpoint)}
+    ${({ breakpoint }) => makeBreakpoint(breakpoint)};
 `
 
 function makeBreakpoint(breakpoint) {

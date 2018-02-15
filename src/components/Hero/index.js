@@ -54,7 +54,12 @@ const Title = styled.div`
 `
 
 const H1Vector = styled.img`
+max-width: 300px;
+
+@media (min-width: ${ FIRST_QUERY() }) {
     max-width: 500px;
+}
+
 `
 
 const Description = styled.p`

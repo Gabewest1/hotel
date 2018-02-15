@@ -4,10 +4,11 @@ import CheckAvailabilityButton from "../CheckAvailabilityButton"
 import { Link } from "react-router-dom"
 import  { PRIMARY_COLOR, SECONDARY_COLOR, TERTIARY_COLOR, FIRST_QUERY} from "../../constants/index"
 import ShowComponent from "../ShowComponent"
+import Login from "../Login"
 
 class Navbar extends React.Component {
     state = {
-        isExpanded: false
+        isExpanded: true
     }
 
     render() {
@@ -19,33 +20,35 @@ class Navbar extends React.Component {
                 <Background />
 
                 <TopNavbar>
-                    <Link to="/">
-                        <Logo src="/assets/images/logo5.svg" />
-                    </Link>
                     <Wrapper>
-                        <ShowComponent breakpoint={ FIRST_QUERY() } flex>
-                            <LoginWrapper>
-                                <LoginButtons>Log In</LoginButtons>
-                                <Line />
-                                <LoginButtons>Sign Up</LoginButtons>
-                            </LoginWrapper>
-                            <CheckAvailabilityButton />
-                        </ShowComponent>
-
+                            <ShowComponent breakpoint={[[0, FIRST_QUERY(-1)]]} fitArea={true}>
+                                <Login />
+                            </ShowComponent>
+                                <Link to="/">
+                                    <Logo src="/assets/images/logo6.svg" />
+                                </Link>
+                            
                         <MenuIcon
                             src="/assets/images/menu.svg"
                             onClick={() => this.setState({ isExpanded: ! isExpanded })}    
                         />
+                        <ShowComponent breakpoint={ FIRST_QUERY() } flex>
+                            <Login />
+                            <CheckAvailabilityButton />
+                        </ShowComponent>
+
                     </Wrapper>
                 </TopNavbar>
 
 
                 <BottomNavbar isExpanded={ isExpanded }>
                     <List>
-                        <ShowComponent breakpoint={[[0, FIRST_QUERY()]]}>
-                            <CheckAvailabilityListItem>
-                                <CheckAvailabilityButton />
-                            </CheckAvailabilityListItem>
+                        <ShowComponent style={{width: '100%', height: '100%'}} breakpoint={[[0, FIRST_QUERY(-1)]]} fitArea={true}>
+                            <Spacer>
+                                <CheckAvailabilityListItem>
+                                    <CheckAvailabilityButton />
+                                </CheckAvailabilityListItem>
+                            </Spacer>
                         </ShowComponent>
                         <ListItem><Link to="/rooms">Rooms &amp; Suites</Link></ListItem>
                         <ListItem><Link to="">Meetings</Link></ListItem>
@@ -69,49 +72,21 @@ const TOP_NAV_BACKGROUND = PRIMARY_COLOR
 const MenuIcon = styled.img`
     width: 33px;
 
-    @media (min-width: ${  FIRST_QUERY(0) }) {
+    @media (min-width: ${  FIRST_QUERY() }) {
         display: none;
+
     }
 `
+
+
 const Wrapper = styled.div`
     display: flex;
+    width: 90%;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center; 
     position: relative;
-    right: 10px;
-    top: 6px;
+    right: 1px;
 `
-
-const LoginWrapper = styled.div`
-    position: relative;
-    right: 20px;
-    display: flex;
-    justify-content: space-between;
-`
-
-const LoginButtons = styled.button`
-    background-color: transparent;
-    cursor: pointer;
-    padding: 0;
-    margin: 0;
-    border: none;
-    font-family: 'Muli', sans-serif;
-    font-size: 13px;
-    &:hover {
-        color: ${ TERTIARY_COLOR };
-    }
-`
-
-const Line = styled.div`
-    background-color: ${ SECONDARY_COLOR };
-    width: 1px;
-    height: 20px;
-    position: relative;
-    bottom: 1px;
-    left: 1px;
-    margin: 10px;
-`
-
 
 const NAV_BAR_STYLE = `
     background-color: transparent;
@@ -126,32 +101,6 @@ const Background = styled.div`
     height: 100%;
 `
 
-const BookRoomButton = styled(Link)`
-    border: solid thin #4c0505;
-    border-radius: 1px;
-    background: #fdfdfd;
-    text-decoration: none;
-    letter-spacing: 0.16rem;
-    text-transform: uppercase;
-    color: #4c0505;
-    display: inline-block;
-    width: 252px;
-    height: 33px;
-    font-size: 13px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Montserrat', sans-serif;
-    &:hover {
-        color: white;
-        border: solid thin white;
-        background: black;
-    }
-`
-const BookRoomButtonContainer = styled.div`
-
-`
 const HideOnMobile = styled.div`
     display: none;
 
@@ -159,27 +108,26 @@ const HideOnMobile = styled.div`
         display: flex;
     }
 `
+
 const Logo = styled.img`
-    max-width: 250px;
 `
-const ListItem = styled.li`
+
+const ListItem = styled.div`
     text-transform: uppercase;
-    text-align: center;
     font-size: 11px;
     letter-spacing: 0.14rem;
     font-family: 'Montserrat', sans-serif;
-    width: 100%;
     height: 13px;   
     display: flex;
     align-items: center;
     justify-content: center;
     white-space: nowrap;
-    
+
     a { 
+        text-align: center;
         width: 100%;
         height: 13px;
         display: inline-block;
-        padding: 1em 0em;
         color: ${ LINK_COLOR };
         text-decoration: none;
         
@@ -189,52 +137,64 @@ const ListItem = styled.li`
             color: #c4b8a7e0;
         }
     }
-    `
+`
 
-    const CheckAvailabilityListItem = styled.li`
-    `
-
-
-    const List = styled.ul`
+const Spacer = styled.div `
+    width: 100%;
+    height: 80px;
+    top: -5px;
     display: flex;
+    align-items: center;
+    justify-content: center;
+`
+const NeedToRefactor = styled.div`
+    width: 100%;
+    height: 67px; 
+    `
+    
+    
+const CheckAvailabilityListItem = styled.div`
+    margin-left: 5%;
+    width: 90%;
+    padding-bottom: 10px;
+`
+
+const List = styled.div`
+    display: flex;
+    justify-content: space-between;
     list-style: none;
     align-items: center;
     margin: 0;
     width: 90%;
-    max-width: 1300px;
-    box-sizing: border-box;
-    padding: 0 1em;
-    
+    max-width: 1200px;
+    transition: all .3s ease-in;
+
     @media (min-width: ${  FIRST_QUERY(0) }) { 
         height: 40px;
         
-        ${ ListItem } {
-            
-        }
     }
-    `
+`
     
 const TopNavbar = styled.div`
     ${ NAV_BAR_STYLE }
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    width: 90%;
-    max-width: 1200px;
-    height: 67px;
+    width: 100%;
+    max-width: 1300px;
+    height: 67px; 
 `
 const BottomNavbar = styled.div`
     ${ NAV_BAR_STYLE }
     display: ${({ isExpanded }) => isExpanded ? "block" : "none"};    
     height: ${({ isExpanded }) => isExpanded ? "100%" : "0%"};
     background-color: ${ BOTTOM_NAV_BACKGROUND };
-    width: 100%;
+    width: 90%;
     box-shadow: 0 2px 14px 0 rgba(0,0,0,0.15);
     
     @media (max-width: ${ FIRST_QUERY(-1) }) {
         ${ List } {
-            // transition: all .3s ease-in;
-            margin: initial;
+            border-top: #dcdcdc 1px solid;
             display: block;
             width: 100%;
             text-align: center;
@@ -245,25 +205,31 @@ const BottomNavbar = styled.div`
             background-color: ${ PRIMARY_COLOR };
             
             ${ ListItem } {
-                // width: 100%;                
+                align-self: flex-start;
+                // width: 100%;
                 font-size: 20px;
-                padding: 10px 0;
-                height: 31px;
-                
-                &:first-child {
-                    // margin-left: 0;
-                }
-                
-                &:last-child {
-                    // margin-right: 0;
-                }
+                padding: 13px 0;
+                padding-left: 7%;
+                height: 24px;
                 
                 a {
                     font-size: 12px;
-                    color: ${ SECONDARY_COLOR };
+                    color: black;
+                    text-shadow: 0px 0px 10px #78787826;
                     font-family: helvetica;
                     text-align: left;
                     padding-left: 5%;
+                    // font-weight: bold;
+                    font-family: 'Rammetto One', cursive;
+                    font-family: 'Open Sans', sans-serif;
+                    font-family: 'Lato', sans-serif;
+                    font-family: 'Roboto Condensed', sans-serif;
+                    font-family: 'Montserrat', sans-serif;
+                    font-family: 'Oswald', sans-serif;
+                    font-family: 'Slabo 27px', serif;
+                    font-family: 'Source Sans Pro', sans-serif;
+                    font-family: 'Dhurjati', sans-serif;
+                    font-family: 'Raleway', sans-serif;
                 }
             }
         }
@@ -277,7 +243,8 @@ const BottomNavbar = styled.div`
         height: 35px;
 
         ${ List } {
-            width: 100%;
+            width: 90%;
+            max-width: 1176px;
         }
     }
 `
@@ -286,7 +253,7 @@ const NavbarView = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-between;
+    // justify-content: space-between;
     width: 100%;
     position: ${({ match }) => match.isExact ? "absolute" : "relative"};
     z-index: 1;

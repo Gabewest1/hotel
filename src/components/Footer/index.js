@@ -13,7 +13,7 @@ class Footer extends React.Component {
 
                     <LogoWrapper>
                         <Link to="/">
-                            <Logo src="/assets/images/logo5alt.svg" />
+                            <Logo src="/assets/images/logo6alt.svg" />
                         </Link>
                         <SocialMediaView />                    
                     </LogoWrapper>
@@ -123,7 +123,7 @@ const LineAbove = styled(Line)`
 `
 
 const Logo = styled.img`
-    max-width: 250px;
+    max-width: 170px;
 `
 
 const Links = styled.div`
@@ -139,7 +139,7 @@ const Links = styled.div`
 const SocialMedia = styled.div`
     display: flex;
     justify-content: space-between;
-    width: 120px;
+    width: 125px;
 `
 
 const ItemsContainer = styled.div`
@@ -154,6 +154,7 @@ const ItemsContainer = styled.div`
 
     @media (min-width: ${ TABLET_BREAKPOINT }px) {
         flex-direction: row;
+        // max-width: 800px;
     }
 `
 const HideOnMobile = styled.div`
@@ -189,7 +190,9 @@ const ShowOnMobile = styled.div`
 const FooterView = styled.div` 
     color: white;
     background-color: ${ SECONDARY_COLOR };
-    padding: 60px 40px;
+    padding: 50px 40px;
+    padding-bottom: 80px;
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
