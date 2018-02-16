@@ -8,7 +8,7 @@ class Home extends Component {
     return (
       <HomeView>
                 
-        <Carousel />
+        <Carousel autoPlay infiniteLoop />
 
         <ContactSection>
           <Description>

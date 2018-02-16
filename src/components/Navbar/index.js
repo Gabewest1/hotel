@@ -22,7 +22,7 @@ class Navbar extends React.Component {
                                 <Login />
                             </ShowComponent>
                                 <Link to="/">
-                                    <Logo src="/assets/images/logo6.svg" />
+                                    <Logo src="/assets/images/logo5.svg" />
                                 </Link>
                             
                         <MenuIcon

@@ -5,7 +5,7 @@ import  { PRIMARY_COLOR, SECONDARY_COLOR, TERTIARY_COLOR, FIRST_QUERY} from "../
 class Hero extends React.Component {
     render() {
         return (
-            <HeroView>
+            <HeroView { ...this.props }>
                 <Overlay />
                 <Wrapper>
                     <Title>
@@ -62,11 +62,12 @@ const H1Vector = styled.img`
         max-width: 500px;
     }
 `
+
 const HeroView = styled.div`
     color: #efefef;
     height: 100vh;
     max-height: 600px;
-    background: url(/assets/images/home_hero6.png) no-repeat;
+    background: url(${ ({ url }) =>  url }) no-repeat;
     background-size: cover;
     background-position: 84% center;
     display: flex;
@@ -79,3 +80,17 @@ const HeroView = styled.div`
     }
 `
 export default Hero
+
+// const url = this.props.url
+// const height = this.props.height
+// const width = this.props.width
+
+// const { url, height, width } = this.props
+
+// let a = { name: "g", age: 2 }
+// let b = { hey: "hi", cockSize: 6}
+
+// ay(a, b, { yolo: 3})
+// function ay({ name, age }, { hey, cockSize }, c) {
+//     c.yolo
+// }

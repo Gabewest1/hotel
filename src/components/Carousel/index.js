@@ -8,11 +8,11 @@ class Carousel extends React.Component {
   render () {
     return (
       <_CarouselView { ...this.props }>
-        <Hero />
-        <Hero />
-        <Hero />
-        <Hero />
-        <Hero />
+        <Hero url='/assets/images/mountain.png'/>
+        <Hero url='/assets/images/home_hero5.png'/>
+        <Hero url='/assets/images/home_hero7.png'/>
+        <Hero url='/assets/images/hero8.png' />
+        <Hero url='/assets/images/potentials/potential1.png' />
       </_CarouselView>
     )
   }
