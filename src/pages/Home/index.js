@@ -11,7 +11,7 @@ class Home extends Component {
   render() {
     return (
       <HomeView>
-                
+
         <Carousel />
 
         <ContactSection />
@@ -28,6 +28,7 @@ class Home extends Component {
 }
 
 const HomeView = styled.div`
+  padding: 0 30px;
 `
 
 export default Home
