@@ -5,13 +5,7 @@ export default class RoomsSection extends React.Component {
     render() {
         return (
             <RoomsSectionView { ...this.props }>
-                <Title>Rooms Section</Title>
-                <ImageContainer>
-                    <Image src="/assets/images/filler.jpg"/>
-                </ImageContainer>
-                <Description>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum, maxime itaque. Dolorem veniam veritatis eum consectetur molestias non saepe, perspiciatis odio suscipit ipsam tempore omnis quaerat iste maiores eligendi. Facilis.
-                </Description>
+                <RoomView src="/assets/images/filler.jpg" />
           </RoomsSectionView>
         )
     }
@@ -24,6 +18,20 @@ const Description = styled.p`
 `
 const Image = styled.img``
 const ImageContainer = styled.div``
+const Room = styled.div`
+
+`
+
+const RoomView = props => (
+    <Room>
+        <ImageContainer>
+            <Image src={ props.src } />
+        </ImageContainer>
+        <Description>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum, maxime itaque. Dolorem veniam veritatis eum consectetur molestias non saepe, perspiciatis odio suscipit ipsam tempore omnis quaerat iste maiores eligendi. Facilis.
+        </Description>
+    </Room>
+)
 const RoomsSectionView = styled.section`
 
 `
