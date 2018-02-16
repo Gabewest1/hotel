@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import  { PRIMARY_COLOR, SECONDARY_COLOR, TERTIARY_COLOR, FIRST_QUERY} from "../../constants/index"
 
-
 class Hero extends React.Component {
     render() {
         return (
@@ -26,12 +25,9 @@ const SPACING = `
 
     @media (min-width: ${ FIRST_QUERY(0) }) {
         top: 175px;
-        // left: 50px;
-        margin: 0;
-        
+        margin: 0;        
     }
 `
-
 const Overlay = styled.div`
     position: absolute;
     top: 0;
@@ -47,12 +43,10 @@ const Wrapper = styled.div`
     align-self: center;
     position: relative;
     top: 45px;
-    right: 20px;
 `
 const Title = styled.div`
     padding-bottom: 25px;
 `
-
 const Description = styled.p`
     font-family: 'Roboto Condensed', sans-serif;
     text-transform: uppercase;
@@ -61,7 +55,6 @@ const Description = styled.p`
     font-size: 14px;
     color: #f0f0f0b0;
 `
-
 const H1Vector = styled.img`
     max-width: 300px;
 
@@ -72,7 +65,7 @@ const H1Vector = styled.img`
 const HeroView = styled.div`
     color: #efefef;
     height: 100vh;
-    // max-height: 600px;
+    max-height: 600px;
     background: url(/assets/images/home_hero6.png) no-repeat;
     background-size: cover;
     background-position: 84% center;
