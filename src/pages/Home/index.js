@@ -14,21 +14,25 @@ class Home extends Component {
 
         <Carousel />
 
-        <ContactSection />
+        <Padding>
+          <ContactSection />
 
-        <RoomsSection />
+          <RoomsSection />
 
-        <ActivitiesSection />
+          <ActivitiesSection />
 
-        <FoodSection />
+          <FoodSection />
+        </Padding>
 
       </HomeView>
     )
   }
 }
 
-const HomeView = styled.div`
+const Padding = styled.div`
   padding: 0 30px;
+`
+const HomeView = styled.div`
 `
 
 export default Home
