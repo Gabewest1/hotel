@@ -11,9 +11,13 @@ class Home extends Component {
         <Hero />
 
         <ContactSection>
-          <Title>Contact Section</Title>
           <Description>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum, maxime itaque. Dolorem veniam veritatis eum consectetur molestias non saepe, perspiciatis odio suscipit ipsam tempore omnis quaerat iste maiores eligendi. Facilis.
+            <Address1>3801 Stark Hollow Road</Address1>
+            <Address2>Denver, CO</Address2>
+            
+            <Phone>
+              (555) 555-9900
+            </Phone>
           </Description>
         </ContactSection>
 
@@ -65,7 +69,38 @@ const Image = styled.img``
 const ImageContainer = styled.div``
 const ContactSection = styled.section`
   ${ SectionStyles }  
+  margin: 0 auto;
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: 7em;
+  padding: 0em 2em;
+  line-height: 25px;
+  font-family: Helvetica;
+  font-size: 15px;
+  letter-spacing: 0.12rem;
+  width: 300px;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  border-bottom: #b9b9b9 1px solid;
+  text-transform: uppercase;
+  border-top: #b9b9b9 1px solid;
+  `
+  
+const Address1 = styled.div`
+  font-family: 'Montserrat', sans-serif;  
 `
+const Address2 = styled.div`
+  font-size: 12px;
+`
+
+const Phone = styled.div`
+  font-weight: 500;
+  padding-top: 1em;
+  color: #333;
+`
+
+
 const RoomsSection = styled.section`
   ${ SectionStyles }
 `
