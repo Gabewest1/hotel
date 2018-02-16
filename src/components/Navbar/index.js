@@ -8,7 +8,7 @@ import Login from "../Login"
 
 class Navbar extends React.Component {
     state = {
-        isExpanded: true
+        isExpanded: false
     }
 
     render() {
@@ -238,7 +238,7 @@ const NavbarView = styled.div`
     flex-direction: column;
     width: 100%;
     position: ${({ match }) => match.isExact ? "absolute" : "relative"};
-    z-index: 1;
+    z-index: 10000;
 `
 
 

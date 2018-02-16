@@ -53,15 +53,6 @@ const Title = styled.div`
     padding-bottom: 25px;
 `
 
-const H1Vector = styled.img`
-max-width: 300px;
-
-@media (min-width: ${ FIRST_QUERY() }) {
-    max-width: 500px;
-}
-
-`
-
 const Description = styled.p`
     font-family: 'Roboto Condensed', sans-serif;
     text-transform: uppercase;
@@ -70,9 +61,18 @@ const Description = styled.p`
     font-size: 14px;
     color: #f0f0f0b0;
 `
+
+const H1Vector = styled.img`
+    max-width: 300px;
+
+    @media (min-width: ${ FIRST_QUERY() }) {
+        max-width: 500px;
+    }
+`
 const HeroView = styled.div`
     color: #efefef;
     height: 100vh;
+    // max-height: 600px;
     background: url(/assets/images/home_hero6.png) no-repeat;
     background-size: cover;
     background-position: 84% center;

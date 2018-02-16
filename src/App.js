@@ -17,6 +17,7 @@ import Services from "./pages/Services"
 
 
 import "./App.css"
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const App = () => (
   <Router>

@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import styled from "styled-components"
 
-import Hero from "../../components/Hero"
+import Carousel from "../../components/Carousel"
 
 class Home extends Component {
   render() {
     return (
       <HomeView>
                 
-        <Hero />
+        <Carousel />
 
         <ContactSection>
           <Title>Contact Section</Title>
