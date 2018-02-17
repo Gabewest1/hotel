@@ -4,13 +4,12 @@ import { Link } from "react-router-dom"
 import  { PRIMARY_COLOR, SECONDARY_COLOR, TERTIARY_COLOR, FIRST_QUERY } from "../../constants/index"
 
 const BookRoomButton = styled(Link)`
-    border: solid 1px ${ SECONDARY_COLOR}};
     border-radius: 2px;
     background: #fdfdfd;
     text-decoration: none;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: ${ SECONDARY_COLOR}};
+    color: #ffe5bfe0;  
     display: inline-block;
     width: 238px;
     height: 29px;
@@ -23,10 +22,14 @@ const BookRoomButton = styled(Link)`
     position: relative;
     top: 7px;
     transition: background-color 0.3s ease-out, color 0.3s ease-out, border-color 0.3s ease-out;
+    background-color:  transparent;
+    width: 94%;
+    color: ${ SECONDARY_COLOR};
+    border: solid 1px ${ SECONDARY_COLOR}};
     
     @media (max-width: ${  FIRST_QUERY() }) { 
-        width: 94%;
-        // top: 12px;
+        border: solid 1px #ffe5bfe0;
+        color: #ffe5bfe0;
         
     }
     

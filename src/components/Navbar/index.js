@@ -23,7 +23,7 @@ class Navbar extends React.Component {
                             </ShowComponent>
                                 <Link to="/">
                                     {/* <Logo src="/assets/images/logo5.svg" /> */}
-                                    <Logo src="/assets/images/logo5.svg" />
+                                    {/* <Logo src="/assets/images/logo5.svg" /> */}
                                 </Link>
                             
                         <MenuIcon
@@ -124,7 +124,7 @@ const ListItem = styled.li`
 
 const Spacer = styled.div `
     width: 100%;
-    height: 80px;
+    height: 70px;
     top: -5px;
     display: flex;
     align-items: center;
@@ -180,7 +180,6 @@ const BottomNavbar = styled.div`
 
         ${ List } {
             background-color: ${ BOTTOM_NAV_BACKGROUND };
-
             border-top: #dcdcdc 1px solid;
             display: block;
             width: 100%;
@@ -192,10 +191,11 @@ const BottomNavbar = styled.div`
             // background-color: ${ PRIMARY_COLOR };
             
             ${ ListItem } {
-                align-self: flex-start;
+                text-align: center;
+                // align-self: flex-start;
                 font-size: 20px;
                 padding: 13px 0;
-                padding-left: 7%;
+                // padding-left: 7%;
                 height: 24px;
                 
                 a {

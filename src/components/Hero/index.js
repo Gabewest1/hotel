@@ -6,6 +6,10 @@ class Hero extends React.Component {
     render() {
         return (
             <HeroView { ...this.props }>
+                
+                <SideBars>sfsf
+                </SideBars>
+                    
                 <Overlay />
                 <Wrapper>
                     <Title>
@@ -15,6 +19,10 @@ class Hero extends React.Component {
                         Lorem ipsum dolor amet poutine humblebrag kale chips.
                     </Description>
                 </Wrapper>
+
+                <SideBars>
+                </SideBars>
+                
             </HeroView>
         )
     }
@@ -23,16 +31,29 @@ class Hero extends React.Component {
 const SPACING = `
     position: relative;
 
-    @media (min-width: ${ FIRST_QUERY(0) }) {
+    @media (min-width: ${ FIRST_QUERY() }) {
         top: 175px;
         margin: 0;        
     }
 `
+
+const SideBars = styled.div`
+    width: 10px;
+    height: 100%;
+    background: ${ PRIMARY_COLOR }};
+    z-index: 12;
+
+    @media (min-width: ${ FIRST_QUERY() }) {
+        width: 0px;
+    }
+
+`
+
 const Overlay = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    background: linear-gradient(to bottom, transparent 40%, #000 100%);
+    background: linear-gradient(to bottom,transparent 52%,#000 91%);
     height: 100vh;
     width: 100%;
 `
@@ -67,12 +88,13 @@ const HeroView = styled.div`
     color: #efefef;
     height: 100vh;
     max-height: 600px;
+    // width: 100vh;
     background: url(${ ({ url }) =>  url }) no-repeat;
     background-size: cover;
     background-position: 84% center;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    // flex-direction: column;
+    justify-content: space-between;
 
     @media (min-width: ${ FIRST_QUERY(0) }) {
         background-position: 100% center;
