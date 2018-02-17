@@ -22,6 +22,7 @@ class Navbar extends React.Component {
                                 <Login />
                             </ShowComponent>
                                 <Link to="/">
+                                    {/* <Logo src="/assets/images/logo5.svg" /> */}
                                     <Logo src="/assets/images/logo5.svg" />
                                 </Link>
                             
@@ -169,15 +170,17 @@ const BottomNavbar = styled.div`
     background-color: ${ BOTTOM_NAV_BACKGROUND };
     height: ${({ isExpanded }) => isExpanded ? "461px" : "0px" };
     width: 90%;
-    box-shadow: 0 2px 14px 0 rgba(0,0,0,0.15);
+    // box-shadow: 0 2px 14px 0 rgba(0,0,0,0.15);
     overflow: hidden;
     transition: height .5s ease-in-out;
 
     @media (max-width: ${ FIRST_QUERY(-1) }) {
-        margin-bottom: ${({ isExpanded }) => isExpanded ? "30px" : "0"};
+        // margin-bottom: ${({ isExpanded }) => isExpanded ? "30px" : "0"};
         background-color: transparent;
 
         ${ List } {
+            background-color: ${ BOTTOM_NAV_BACKGROUND };
+
             border-top: #dcdcdc 1px solid;
             display: block;
             width: 100%;
@@ -186,7 +189,7 @@ const BottomNavbar = styled.div`
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            background-color: ${ PRIMARY_COLOR };
+            // background-color: ${ PRIMARY_COLOR };
             
             ${ ListItem } {
                 align-self: flex-start;
@@ -197,7 +200,7 @@ const BottomNavbar = styled.div`
                 
                 a {
                     font-size: 12px;
-                    color: black;
+                    // color: black;
                     text-shadow: 0px 0px 10px #78787826;
                     font-family: helvetica;
                     text-align: left;
