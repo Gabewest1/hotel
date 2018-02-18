@@ -87,11 +87,13 @@ const MoreInfo = styled(Link)`
 
 `
 const Room = styled.div`
+    margin: 0 auto;
     margin-bottom: 40px;
     box-shadow: 0 0 3px 3px lightgray;
     font-family: 'Montserrat',sans-serif;
+    max-width: 700px;
 
-    @media (min-width: 768px) {
+    @media (min-width: 1200px) {
         flex-basis: 47%;
     }
 `
