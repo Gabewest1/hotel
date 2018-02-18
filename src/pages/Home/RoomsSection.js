@@ -1,12 +1,14 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
+import  { PRIMARY_COLOR, SECONDARY_COLOR, TERTIARY_COLOR, FIRST_QUERY, SECOND_QUERY} from "../../constants/index"
+import SectionTitle from './SectionTitle'
 
 export default class RoomsSection extends React.Component {
     render() {
         return (
             <RoomsSectionView { ...this.props }>
-                <SectionTitle>Rooms &amp; Suites</SectionTitle>
+                <SectionTitle>Rooms <span>&amp;</span> Suites</SectionTitle>
                 <Row>
                     <RoomView
                         src="/assets/images/rooms/room1.jpg"
@@ -45,17 +47,7 @@ const Title = styled.h3`
     font-weight: 500;
     text-transform: uppercase;
 `
-const SectionTitle = styled.h1`
-    margin: 60px auto;
-    padding-bottom: 30px;
-    font-weight: 400;
-    font-family: 'Montserrat',sans-serif;
-    text-align: center;
-    font-size: 48px;
-    border-bottom: thin solid #b9b9b9;
-    width: 80%;
-    letter-spacing: 7px;
-`
+
 const Description = styled.p`
     font-family: montserrat, sans-serif;
     margin: 0;
