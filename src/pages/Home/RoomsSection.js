@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { Link } from "react-router-dom"
 
 export default class RoomsSection extends React.Component {
     render() {
@@ -42,7 +43,6 @@ export default class RoomsSection extends React.Component {
 const Title = styled.h3`
     margin: 0;
     font-weight: 500;
-    margin-bottom: 15px;
     text-transform: uppercase;
 `
 const SectionTitle = styled.h1`
@@ -60,14 +60,19 @@ const Description = styled.p`
     font-family: montserrat, sans-serif;
     margin: 0;
     font-size: 12px;
-    letter-spacing: 3,px;
-    margin-top: 14px;
+    line-height: 29px;    
 `
 const Image = styled.img`
     max-width: 100%;
     width: 100%;
 `
-const ImageContainer = styled.div``
+const ImageContainer = styled.div`
+    background: url(${({ src }) => src}) no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 200px;
+`
 const Size = styled.div`
     span {
         margin-right: 10px;
@@ -77,31 +82,42 @@ const Size = styled.div`
 `
 const Details = styled.div`
     padding: 15px;
+
+    > * {
+        margin-bottom: 15px;
+    }
+
+    > *:last-child {
+        margin-bottom: 0;
+    }
+`
+const MoreInfo = styled(Link)`
+
 `
 const Room = styled.div`
-    min-width: 300px;
-    flex-basis: 40%;
     margin-bottom: 40px;
     box-shadow: 0 0 3px 3px lightgray;
-    font-family: 'Montserrat',sans-serif;    
+    font-family: 'Montserrat',sans-serif;
+
+    @media (min-width: 768px) {
+        flex-basis: 47%;
+    }
 `
 const RoomView = ({ description, size, src, title }) => (
     <Room>
-        <ImageContainer>
-            <Image src={ src } />
-        </ImageContainer>
+        <ImageContainer src={ src } />
         
         <Details>
             <Title>{ title }</Title>
-            <Size><span>Size</span>{ size }</Size>
             <Description>{ description }</Description>
+            <Size><span>Size</span>{ size }</Size>
         </Details>
     </Room>
 )
 const Row = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
 `
 const RoomsSectionView = styled.section`
