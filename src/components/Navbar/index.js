@@ -8,7 +8,7 @@ import Login from "../Login"
 
 class Navbar extends React.Component {
     state = {
-        isExpanded: false
+        isExpanded: true
     }
 
     render() {
@@ -18,11 +18,12 @@ class Navbar extends React.Component {
             <NavbarView { ...this.props }>
                 <TopNavbar>
                     <Wrapper>
-                            <ShowComponent breakpoint={[[0, FIRST_QUERY(-1)]]} fitArea={true}>
-                                <Login />
+                            <ShowComponent breakpoint={[[550, FIRST_QUERY(-1)]]}>
+                                {/* <Login /> */}
+                                <CheckAvailabilityButton />
                             </ShowComponent>
                                 <Link to="/">
-                                    {/* <Logo src="/assets/images/logo5.svg" /> */}
+                                    <Logo src="/assets/images/logo6.svg" />
                                     {/* <Logo src="/assets/images/logo5.svg" /> */}
                                 </Link>
                             
@@ -41,11 +42,11 @@ class Navbar extends React.Component {
 
                 <BottomNavbar isExpanded={ isExpanded }>
                     <List isExpanded={ isExpanded }>
-                        <ShowComponent style={{width: '100%', height: '100%'}} breakpoint={[[0, FIRST_QUERY(-1)]]} fitArea={true}>
+                        <ShowComponent style={{width: '100%', height: '100%'}} breakpoint={[[0, FIRST_QUERY(-1)]]}>
                             <Spacer>
-                                <CheckAvailabilityListItem>
-                                    <CheckAvailabilityButton />
-                                </CheckAvailabilityListItem>
+                                <LoginListItem>
+                                    <Login/>
+                                </LoginListItem>
                             </Spacer>
                         </ShowComponent>
                         <ListItem><Link to="/rooms">Rooms &amp; Suites</Link></ListItem>
@@ -78,11 +79,13 @@ const MenuIcon = styled.img`
 
 const Wrapper = styled.div`
     display: flex;
-    width: 90%;
+    width: 100%;
     justify-content: space-between;
     align-items: center; 
     position: relative;
     right: 1px;
+    padding: 0 1em;
+    box-sizing: border-box;
 `
 
 const NAV_BAR_STYLE = `
@@ -124,20 +127,20 @@ const ListItem = styled.li`
 
 const Spacer = styled.div `
     width: 100%;
-    height: 70px;
-    top: -5px;
+    height: 45px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center
+    justify-content: flex-end;
+
 `
-const NeedToRefactor = styled.div`
+  
+const LoginListItem = styled.div`
     width: 100%;
-    height: 67px; 
-`   
-const CheckAvailabilityListItem = styled.div`
-    margin-left: 5%;
-    width: 90%;
-    padding-bottom: 10px;
+    border-bottom: white 1px solid;
+    padding: 1em 2em;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
 `
 
 const List = styled.ul`
@@ -147,12 +150,12 @@ const List = styled.ul`
     align-items: center;
     padding: 0;
     margin: 0;
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
-    transition: all .3s ease-in;
-
-    @media (min-width: ${  FIRST_QUERY(0) }) { 
+    
+    @media (min-width: ${  FIRST_QUERY() }) { 
         height: 40px;
+        transition: all .3s ease-in;
     }
 `
     
@@ -164,18 +167,23 @@ const TopNavbar = styled.div`
     width: 100%;
     max-width: 1300px;
     height: 67px; 
+    padding: 1em;
+    box-sizing: border-box;
 `
 const BottomNavbar = styled.div`
     ${ NAV_BAR_STYLE }
     background-color: ${ BOTTOM_NAV_BACKGROUND };
-    height: ${({ isExpanded }) => isExpanded ? "461px" : "0px" };
-    width: 90%;
+    height: ${({ isExpanded }) => isExpanded ? "420px" : "0px" };
+    width: 100%;
     // box-shadow: 0 2px 14px 0 rgba(0,0,0,0.15);
     overflow: hidden;
     transition: height .5s ease-in-out;
-
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+    // padding-bottom: 20px;
+    
     @media (max-width: ${ FIRST_QUERY(-1) }) {
-        // margin-bottom: ${({ isExpanded }) => isExpanded ? "30px" : "0"};
         background-color: transparent;
 
         ${ List } {

@@ -38,7 +38,7 @@ const SPACING = `
 `
 
 const SideBars = styled.div`
-    width: 10px;
+    width: 20px;
     height: 100%;
     background: ${ PRIMARY_COLOR }};
     z-index: 12;

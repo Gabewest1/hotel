@@ -20,23 +20,28 @@ const BookRoomButton = styled(Link)`
     align-items: center;
     font-family: 'Montserrat', sans-serif;
     position: relative;
-    top: 7px;
+    top: 3px;
+    left: -1px;
     transition: background-color 0.3s ease-out, color 0.3s ease-out, border-color 0.3s ease-out;
     background-color:  transparent;
-    width: 94%;
     color: ${ SECONDARY_COLOR};
     border: solid 1px ${ SECONDARY_COLOR}};
+    white-space: nowrap;
     
-    @media (max-width: ${  FIRST_QUERY() }) { 
-        border: solid 1px #ffe5bfe0;
-        color: #ffe5bfe0;
-        
+    @media (max-width: ${  FIRST_QUERY(-1) }) { 
+        top: 4px;
+        font-size: 11px;
+        width: 200px;
+        color: white;
+        border: solid thin white;
+        background: ${ SECONDARY_COLOR };
+
     }
     
     &:hover {
         color: white;
         border: solid thin white;
-        background: ${ SECONDARY_COLOR }
+        background: ${ SECONDARY_COLOR };
     }
 `
 const BookRoomButtonContainer = styled.div`

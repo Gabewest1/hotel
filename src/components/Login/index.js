@@ -7,10 +7,16 @@ class Login extends React.Component {
 
         return (
             <LoginWrapper>
-                <LoginButtons>Log In</LoginButtons>
-                <Line />
-                <LoginButtons>Sign Up</LoginButtons>
-            </LoginWrapper>
+                <LoginButtons 
+                    style={{
+                            borderRight: '#605b4e 1px solid',
+                            paddingRight: '18px'
+                    }}>Log In</LoginButtons>
+                <LoginButtons
+                    style={{
+                            paddingLeft: '18px'
+                    }}>Sign Up</LoginButtons>
+                </LoginWrapper>
         )
     }
 }
@@ -18,45 +24,36 @@ class Login extends React.Component {
 const LoginWrapper = styled.div`
     position: relative;
     right: 20px;
-    top: 7px;
+    top: 14px;
     display: flex;
     justify-content: space-between;
     white-space: nowrap;
-    // background-color: red;
     
-    @media (max-width: ${ FIRST_QUERY() }) {
+    @media (max-width: ${ FIRST_QUERY(-1) }) {
         width: 100px;
         right: 0px;
         width: 130px;
+        top: 0px;
     }
-
-    @media (max-width: 500px) {
-        width: 100px;
-    }
-
 `
     
     const LoginButtons = styled.button`
     // text-transform: uppercase;
     background-color: transparent;
     cursor: pointer;
-    padding: 0;
+    // padding: 0;
     margin: 0;
     border: none;
     font-family: 'Muli', sans-serif;
     color: #363636;
+    height: 20px;
+
     
-    @media (max-width: ${ FIRST_QUERY() }) {
+    @media (max-width: ${ FIRST_QUERY(-1) }) {
         letter-spacing: 0.065rem;
         font-size: 12px;
         font-weight: bold;
-    }
-
-    @media (max-width: 500px) {
-        letter-spacing: 0.065rem;
-        font-size: 10px;
-        font-weight: bold;
-        // width: 40px;
+        color: #c4b8a7;
     }
 
     &:hover {
@@ -64,19 +61,5 @@ const LoginWrapper = styled.div`
     }
 `
 
-const Line = styled.div`
-background-color: #605b4e;
-width: 1px;
-height: 20px;
-position: relative;
-bottom: 1px;
-left: 1px;
-margin: 10px;
-
-    @media (max-width: ${ FIRST_QUERY() }) {
-        background-color: #c9c9c9;
-
-    }
-`
 
 export default Login
