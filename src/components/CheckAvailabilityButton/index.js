@@ -31,7 +31,7 @@ const BookRoomButton = styled(Link)`
     @media (max-width: ${  FIRST_QUERY(-1) }) { 
         top: 4px;
         font-size: 11px;
-        width: 200px;
+        width: 100%;
         color: white;
         border: solid thin white;
         background: ${ SECONDARY_COLOR };

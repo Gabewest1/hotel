@@ -38,7 +38,7 @@ const SPACING = `
 `
 
 const SideBars = styled.div`
-    width: 20px;
+    width: 5%;
     height: 100%;
     background: ${ PRIMARY_COLOR }};
     z-index: 12;
@@ -61,12 +61,12 @@ const Wrapper = styled.div`
     ${ SPACING };
     display: inline-block;
     text-align: center;
-    align-self: center;
+    align-self: flex-end;
     position: relative;
-    top: 45px;
+    bottom: 70px;
 `
 const Title = styled.div`
-    padding-bottom: 25px;
+    padding-bottom: 15px;
 `
 const Description = styled.p`
     font-family: 'Roboto Condensed', sans-serif;
@@ -77,7 +77,7 @@ const Description = styled.p`
     color: #f0f0f0b0;
 `
 const H1Vector = styled.img`
-    max-width: 300px;
+    max-width: 290px;
 
     @media (min-width: ${ FIRST_QUERY() }) {
         max-width: 500px;

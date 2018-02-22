@@ -16,17 +16,13 @@ class Navbar extends React.Component {
 
         return (
             <NavbarView { ...this.props }>
-                <TopNavbar>
-                    <Wrapper>
-                            <ShowComponent breakpoint={[[550, FIRST_QUERY(-1)]]}>
-                                {/* <Login /> */}
-                                <CheckAvailabilityButton />
-                            </ShowComponent>
-                                <Link to="/">
-                                    <Logo src="/assets/images/logo6.svg" />
-                                    {/* <Logo src="/assets/images/logo5.svg" /> */}
-                                </Link>
-                            
+                    <TopNavbar>
+                        <ShowComponent style={{width: '200px'}} breakpoint={[[700, FIRST_QUERY(-1)]]}>
+                            <CheckAvailabilityButton style={{marginTop: '5px'}}/>
+                        </ShowComponent>
+                        <Link to="/">
+                            <Logo src="/assets/images/logo9.svg" />
+                        </Link>                            
                         <MenuIcon
                             src="/assets/images/menu.svg"
                             onClick={() => this.setState({ isExpanded: ! isExpanded })}    
@@ -35,9 +31,7 @@ class Navbar extends React.Component {
                             <Login />
                             <CheckAvailabilityButton />
                         </ShowComponent>
-
-                    </Wrapper>
-                </TopNavbar>
+                    </TopNavbar>
 
 
                 <BottomNavbar isExpanded={ isExpanded }>
@@ -49,13 +43,16 @@ class Navbar extends React.Component {
                                 </LoginListItem>
                             </Spacer>
                         </ShowComponent>
-                        <ListItem><Link to="/rooms">Rooms &amp; Suites</Link></ListItem>
+                        <ShowComponent style={{width: '100%', height: '100%'}} breakpoint={[[0, 700]]}>
+                            <CheckAvailabilityButton style={{width: '90%', height: '100%', marginTop: '10px', margin: '10px auto'}} />
+                        </ShowComponent>
+                        <ListItem><Link style={{textAlign: 'left'}} to="/rooms">Rooms &amp; Suites</Link></ListItem>
                         <ListItem><Link to="">Meetings</Link></ListItem>
                         <ListItem><Link to="/events">Events</Link></ListItem>                        
                         <ListItem><Link to="">Something</Link></ListItem>
                         <ListItem><Link to="/services">Services</Link></ListItem>
-                        <ListItem><Link to="">Something</Link></ListItem>
-                        <ListItem><Link to="/contact">Contact Us</Link></ListItem>
+                        <ListItem><Link to="">Something Else</Link></ListItem>
+                        <ListItem><Link style={{textAlign: 'right'}} to="/contact">Contact Us</Link></ListItem>
                     </List>
                 </BottomNavbar>
             </NavbarView>
@@ -67,6 +64,12 @@ const LINK_COLOR = "#ffe5bfe0";
 const BOTTOM_NAV_BACKGROUND = SECONDARY_COLOR
 const TOP_NAV_BACKGROUND = PRIMARY_COLOR
 
+const TopNavWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+`
+
 const MenuIcon = styled.img`
     width: 33px;
 
@@ -74,18 +77,6 @@ const MenuIcon = styled.img`
         display: none;
 
     }
-`
-
-
-const Wrapper = styled.div`
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center; 
-    position: relative;
-    right: 1px;
-    padding: 0 1em;
-    box-sizing: border-box;
 `
 
 const NAV_BAR_STYLE = `
@@ -127,7 +118,7 @@ const ListItem = styled.li`
 
 const Spacer = styled.div `
     width: 100%;
-    height: 45px;
+    height: 33px;
     display: flex;
     align-items: center
     justify-content: flex-end;
@@ -136,8 +127,8 @@ const Spacer = styled.div `
   
 const LoginListItem = styled.div`
     width: 100%;
-    border-bottom: white 1px solid;
-    padding: 1em 2em;
+    border-top: #ffe5bf33 1px solid;
+    padding: 0.35em 2em;
     box-sizing: border-box;
     display: flex;
     justify-content: flex-end;
@@ -150,8 +141,8 @@ const List = styled.ul`
     align-items: center;
     padding: 0;
     margin: 0;
-    width: 100%;
-    max-width: 1200px;
+    width: 90%;
+    max-width: 1400px;
     
     @media (min-width: ${  FIRST_QUERY() }) { 
         height: 40px;
@@ -162,27 +153,32 @@ const List = styled.ul`
 const TopNavbar = styled.div`
     ${ NAV_BAR_STYLE }
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    max-width: 1300px;
+    width: 90%;
     height: 67px; 
-    padding: 1em;
     box-sizing: border-box;
 `
+
 const BottomNavbar = styled.div`
     ${ NAV_BAR_STYLE }
     background-color: ${ BOTTOM_NAV_BACKGROUND };
     height: ${({ isExpanded }) => isExpanded ? "420px" : "0px" };
-    width: 100%;
+    width: 90%;
     // box-shadow: 0 2px 14px 0 rgba(0,0,0,0.15);
     overflow: hidden;
     transition: height .5s ease-in-out;
     box-sizing: border-box;
-    padding-left: 20px;
-    padding-right: 20px;
+    // padding-left: 20px;
+    // padding-right: 20px;
     // padding-bottom: 20px;
     
+    @media (max-width: 699px) {
+    height: ${({ isExpanded }) => isExpanded ? "463px" : "0px" };
+        
+
+    }
+
     @media (max-width: ${ FIRST_QUERY(-1) }) {
         background-color: transparent;
 
@@ -193,7 +189,7 @@ const BottomNavbar = styled.div`
             width: 100%;
             text-align: center;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             flex-direction: column;
             // background-color: ${ PRIMARY_COLOR };
@@ -203,7 +199,7 @@ const BottomNavbar = styled.div`
                 // align-self: flex-start;
                 font-size: 20px;
                 padding: 13px 0;
-                // padding-left: 7%;
+                padding-left: 4%;
                 height: 24px;
                 
                 a {

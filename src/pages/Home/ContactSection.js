@@ -24,6 +24,7 @@ const Description = styled.p`
 
 `
 const Image = styled.img``
+
 const Address1 = styled.div`
     font-family: 'Montserrat', sans-serif;  
 `
@@ -36,7 +37,9 @@ const Phone = styled.div`
     padding-top: 1em;
     color: #333;
 `
-const ImageContainer = styled.div``
+
+const ImageContainer = styled.div`
+`
 
 const ContactSectionView = styled.section`
     margin: 0 auto;
@@ -55,4 +58,8 @@ const ContactSectionView = styled.section`
     border-bottom: #b9b9b9 1px solid;
     text-transform: uppercase;
     border-top: #b9b9b9 1px solid;
+
+    @media (max-width: 450px) { 
+        width: 260px;
+    }
 `
