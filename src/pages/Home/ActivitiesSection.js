@@ -37,8 +37,9 @@ export default class Activities extends React.Component {
 }
 const ActivityView = ({ description, src }) => (
     <Activity>
-        <Description>{ description }</Description>
-        <Divider />
+        <Center>
+            <Description>{ description }</Description>
+        </Center>
         <ImageContainer>
             <Image src={ src } />
         </ImageContainer>
@@ -50,26 +51,12 @@ const Title = styled.h1`
 const Description = styled.p`
     display: flex;
     align-items: center;
-    
-    @media(min-width: 480px) {
-        margin-bottom: 0;
-        max-width: 250px;
-        width: 50%;
-    }
 `
 const Image = styled.img`
     max-width: 100%;
 `
 const ImageContainer = styled.div`
 
-    @media (min-width: 480px) {
-        max-width: 50%;
-    }
-`
-const Divider = styled.div`
-    width: 2px;
-    background: ${ PRIMARY_COLOR };
-    margin: 0 40px;
 `
 const Activity = styled.div`
     display: flex;
@@ -78,6 +65,25 @@ const Activity = styled.div`
 
     @media (min-width: 480px) {
         flex-direction: row;
+        justify-content: space-around;
+        height: 300px;
+
+        ${ Description } {
+            margin-bottom: 0;
+            max-width: 440px;
+        }
+
+        ${ ImageContainer } {
+            width: 40%;
+        }
+    }
+`
+const Center = styled.div`
+    text-align: center;
+
+    @media (min-width: 480px) {
+        width: 40%;
+        display: flex;
         justify-content: center;
     }
 `
