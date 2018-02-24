@@ -30,7 +30,12 @@ class Home extends Component {
 }
 
 const Padding = styled.div`
-  padding: 0 30px;
+  padding: 0 15px;
+  
+  @media(min-width: 768px) {
+    padding: 0 30px;
+
+  }
 `
 const HomeView = styled.div`
 `
