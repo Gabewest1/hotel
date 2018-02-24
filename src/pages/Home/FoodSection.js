@@ -1,11 +1,13 @@
 import React from "react"
 import styled from "styled-components"
 
+import SectionTitle from "./SectionTitle"
+
 export default class FoodSection extends React.Component {
     render() {
         return (
             <FoodSectionView { ...this.props }>
-                <Title>Rooms Section</Title>
+                <SectionTitle>Food &amp; Bar</SectionTitle>
                 <ImageContainer>
                     <Image src="/assets/images/filler.jpg"/>
                 </ImageContainer>
