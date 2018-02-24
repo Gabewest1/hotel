@@ -37,12 +37,12 @@ export default class Activities extends React.Component {
 }
 const ActivityView = ({ description, src }) => (
     <Activity>
-        <Center>
-            <Description>{ description }</Description>
-        </Center>
         <ImageContainer>
             <Image src={ src } />
         </ImageContainer>
+        <Center>
+            <Description>{ description }</Description>
+        </Center>
     </Activity>
 )
 const Title = styled.h1`
@@ -56,14 +56,14 @@ const Image = styled.img`
     max-width: 100%;
 `
 const ImageContainer = styled.div`
-
+    width: 100vw;
 `
 const Activity = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    @media (min-width: 480px) {
+    @media (min-width: 768px) {
         flex-direction: row;
         justify-content: space-around;
         height: 300px;
@@ -81,7 +81,7 @@ const Activity = styled.div`
 const Center = styled.div`
     text-align: center;
 
-    @media (min-width: 480px) {
+    @media (min-width: 768px) {
         width: 40%;
         display: flex;
         justify-content: center;
@@ -96,7 +96,11 @@ const Wrapper = styled.div`
         margin-bottom: 0px;
     }
 
-    @media (min-width: 480px) {
+    @media (min-width: 768px) {
+        > * {
+            margin-bottom: 120px;
+        }
+
         ${ Activity }:nth-child(2n) {
             flex-direction: row-reverse;
         }
