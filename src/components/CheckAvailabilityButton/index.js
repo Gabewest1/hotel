@@ -39,8 +39,6 @@ const BookRoomButton = styled(Link)`
     
     @media (max-width: 699px) { 
         width: 100%;
-        background-color: red;
-        color: purple;
     }
 
     &:hover {

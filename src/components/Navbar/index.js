@@ -16,27 +16,29 @@ class Navbar extends React.Component {
 
         return (
             <NavbarView { ...this.props }>
-                    <TopNavbar>
-                        <ShowComponent style={{flexBasis: '33%'}} breakpoint={ FIRST_QUERY() } flex>
-                            <Login/>
-                        </ShowComponent>
-                        <ShowComponent style={{flexBasis: '33%'}} breakpoint={[[700, FIRST_QUERY(-1)]]}>
-                            <CheckAvailabilityButton style={{marginTop: '5px'}}/>
-                        </ShowComponent>
-                        <_Link to="/" style={{flexBasis: '33%'}}>
-                            <Logo src="/assets/images/logo9.svg" />
-                        </_Link>
-                        <MenuWrapper>                            
-                            <MenuIcon
-                                src="/assets/images/menu.svg"
-                                onClick={() => this.setState({ isExpanded: ! isExpanded })}    
-                            />
-                        </MenuWrapper>                            
-                        <ShowComponent style={{flexBasis: '33%'}} breakpoint={ FIRST_QUERY() } flex>
-                            <CheckAvailabilityButton />
-                        </ShowComponent>
+                <TopNavbar>
+                    <ShowComponent breakpoint={ FIRST_QUERY() } flex>
+                        <Login/>
+                    </ShowComponent>
 
-                    </TopNavbar>
+                    <ShowComponent breakpoint={[[700, FIRST_QUERY(-1)]]}>
+                        <CheckAvailabilityButton style={{marginTop: '5px'}}/>
+                    </ShowComponent>
+
+                    <_Link to="/">
+                        <Logo src="/assets/images/logo9.svg" />
+                    </_Link>
+                    
+                    <MenuIcon
+                        src="/assets/images/menu.svg"
+                        onClick={() => this.setState({ isExpanded: ! isExpanded })}    
+                    />
+
+                    <ShowComponent breakpoint={ FIRST_QUERY() } flex>
+                        <CheckAvailabilityButton />
+                    </ShowComponent>
+
+                </TopNavbar>
 
 
                 <BottomNavbar isExpanded={ isExpanded }>
@@ -73,19 +75,16 @@ const TopNavWrapper = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
-`
-const MenuWrapper = styled.div`
-    flex-basis: 33%;
-    background-color: red;
-    display: flex;
-    justify-content: flex-end;
+    position: relative;
 `
 const _Link = styled(Link)`
-    flex-basis: 33%;
-    display: flex;
-    justify-content: center;
+    position: absolute;
+    left: 49.5%;
+    transform: translateX(-50%);
 
-    ${ Logo } {
+    @media(max-width: 699px) {
+        position: static;
+        transform: none;
     }
 `
 
@@ -103,10 +102,7 @@ const NAV_BAR_STYLE = `
     box-sizing: border-box;
 `
 
-const Logo = styled.img`
-    background-color: green;
-
-`
+const Logo = styled.img``
 
 const ListItem = styled.li`
     text-transform: uppercase;
@@ -192,9 +188,7 @@ const BottomNavbar = styled.div`
 
     
     @media (max-width: 699px) {
-    height: ${({ isExpanded }) => isExpanded ? "455px" : "0px" };
-        
-
+        height: ${({ isExpanded }) => isExpanded ? "455px" : "0px" };
     }
 
     @media (max-width: ${ FIRST_QUERY(-1) }) {
