@@ -10,7 +10,8 @@ class Login extends React.Component {
                 <LoginButtons 
                     style={{
                             borderRight: '#605b4e 1px solid',
-                            paddingRight: '18px'
+                            paddingRight: '20px',
+                            textAlign: 'left'
                     }}>Log In</LoginButtons>
                 <LoginButtons
                     style={{
@@ -23,7 +24,7 @@ class Login extends React.Component {
 
 const LoginWrapper = styled.div`
     position: relative;
-    right: 20px;
+    right: 5px;
     top: 14px;
     display: flex;
     justify-content: space-between;
@@ -31,7 +32,7 @@ const LoginWrapper = styled.div`
     
     @media (max-width: ${ FIRST_QUERY(-1) }) {
         width: 100px;
-        right: 0px;
+        // right: 2px;
         width: 130px;
         top: 0px;
     }

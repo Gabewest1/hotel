@@ -38,7 +38,7 @@ const SPACING = `
 `
 
 const SideBars = styled.div`
-    width: 5%;
+    width: 2.5%;
     height: 100%;
     background: ${ PRIMARY_COLOR }};
     z-index: 12;
@@ -88,12 +88,10 @@ const HeroView = styled.div`
     color: #efefef;
     height: 100vh;
     max-height: 600px;
-    // width: 100vh;
     background: url(${ ({ url }) =>  url }) no-repeat;
     background-size: cover;
     background-position: 84% center;
     display: flex;
-    // flex-direction: column;
     justify-content: space-between;
 
     @media (min-width: ${ FIRST_QUERY(0) }) {
@@ -102,17 +100,3 @@ const HeroView = styled.div`
     }
 `
 export default Hero
-
-// const url = this.props.url
-// const height = this.props.height
-// const width = this.props.width
-
-// const { url, height, width } = this.props
-
-// let a = { name: "g", age: 2 }
-// let b = { hey: "hi", cockSize: 6}
-
-// ay(a, b, { yolo: 3})
-// function ay({ name, age }, { hey, cockSize }, c) {
-//     c.yolo
-// }

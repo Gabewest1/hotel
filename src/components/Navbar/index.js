@@ -17,7 +17,10 @@ class Navbar extends React.Component {
         return (
             <NavbarView { ...this.props }>
                     <TopNavbar>
-                        <ShowComponent style={{width: '200px'}} breakpoint={[[700, FIRST_QUERY(-1)]]}>
+                        <ShowComponent breakpoint={ FIRST_QUERY() } flex>
+                            <Login/>
+                        </ShowComponent>
+                        <ShowComponent style={{width: '200px', flexGrow: 1}} breakpoint={[[700, FIRST_QUERY(-1)]]}>
                             <CheckAvailabilityButton style={{marginTop: '5px'}}/>
                         </ShowComponent>
                         <Link to="/">
@@ -28,23 +31,23 @@ class Navbar extends React.Component {
                             onClick={() => this.setState({ isExpanded: ! isExpanded })}    
                         />
                         <ShowComponent breakpoint={ FIRST_QUERY() } flex>
-                            <Login />
                             <CheckAvailabilityButton />
                         </ShowComponent>
+
                     </TopNavbar>
 
 
                 <BottomNavbar isExpanded={ isExpanded }>
                     <List isExpanded={ isExpanded }>
+                        <ShowComponent style={{width: '100%', height: '100%'}} breakpoint={[[0, 700]]}>
+                            <CheckAvailabilityButton style={{width: '90%', height: '100%', marginTop: '10px', margin: '10px auto'}} />
+                        </ShowComponent>
                         <ShowComponent style={{width: '100%', height: '100%'}} breakpoint={[[0, FIRST_QUERY(-1)]]}>
                             <Spacer>
                                 <LoginListItem>
                                     <Login/>
                                 </LoginListItem>
                             </Spacer>
-                        </ShowComponent>
-                        <ShowComponent style={{width: '100%', height: '100%'}} breakpoint={[[0, 700]]}>
-                            <CheckAvailabilityButton style={{width: '90%', height: '100%', marginTop: '10px', margin: '10px auto'}} />
                         </ShowComponent>
                         <ListItem><Link style={{textAlign: 'left'}} to="/rooms">Rooms &amp; Suites</Link></ListItem>
                         <ListItem><Link to="">Meetings</Link></ListItem>
@@ -60,7 +63,7 @@ class Navbar extends React.Component {
     }
 }
 
-const LINK_COLOR = "#ffe5bfe0";
+const LINK_COLOR = "#ffe5bfe0"
 const BOTTOM_NAV_BACKGROUND = SECONDARY_COLOR
 const TOP_NAV_BACKGROUND = PRIMARY_COLOR
 
@@ -141,7 +144,7 @@ const List = styled.ul`
     align-items: center;
     padding: 0;
     margin: 0;
-    width: 90%;
+    width: 95%;
     max-width: 1400px;
     
     @media (min-width: ${  FIRST_QUERY() }) { 
@@ -155,23 +158,20 @@ const TopNavbar = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
-    height: 67px; 
+    width: 95%;
+    height: 85px; 
     box-sizing: border-box;
 `
 
 const BottomNavbar = styled.div`
     ${ NAV_BAR_STYLE }
     background-color: ${ BOTTOM_NAV_BACKGROUND };
-    height: ${({ isExpanded }) => isExpanded ? "420px" : "0px" };
-    width: 90%;
-    // box-shadow: 0 2px 14px 0 rgba(0,0,0,0.15);
+    height: ${({ isExpanded }) => isExpanded ? "412px" : "0px" };
+    width: 95%;
     overflow: hidden;
     transition: height .5s ease-in-out;
     box-sizing: border-box;
-    // padding-left: 20px;
-    // padding-right: 20px;
-    // padding-bottom: 20px;
+
     
     @media (max-width: 699px) {
     height: ${({ isExpanded }) => isExpanded ? "463px" : "0px" };
@@ -192,11 +192,9 @@ const BottomNavbar = styled.div`
             align-items: flex-start;
             justify-content: center;
             flex-direction: column;
-            // background-color: ${ PRIMARY_COLOR };
             
             ${ ListItem } {
                 text-align: center;
-                // align-self: flex-start;
                 font-size: 20px;
                 padding: 13px 0;
                 padding-left: 4%;
@@ -204,21 +202,10 @@ const BottomNavbar = styled.div`
                 
                 a {
                     font-size: 12px;
-                    // color: black;
                     text-shadow: 0px 0px 10px #78787826;
                     font-family: helvetica;
                     text-align: left;
                     padding-left: 5%;
-                    // font-weight: bold;
-                    font-family: 'Rammetto One', cursive;
-                    font-family: 'Open Sans', sans-serif;
-                    font-family: 'Lato', sans-serif;
-                    font-family: 'Roboto Condensed', sans-serif;
-                    font-family: 'Montserrat', sans-serif;
-                    font-family: 'Oswald', sans-serif;
-                    font-family: 'Slabo 27px', serif;
-                    font-family: 'Source Sans Pro', sans-serif;
-                    font-family: 'Dhurjati', sans-serif;
                     font-family: 'Raleway', sans-serif;
                 }
             }

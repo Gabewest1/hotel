@@ -14,13 +14,12 @@ const BookRoomButton = styled(Link)`
     width: 238px;
     height: 29px;
     font-size: 13px;
-    // font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
     position: relative;
-    top: 3px;
+    top: 0px;
     left: -1px;
     transition: background-color 0.3s ease-out, color 0.3s ease-out, border-color 0.3s ease-out;
     background-color:  transparent;
@@ -29,7 +28,6 @@ const BookRoomButton = styled(Link)`
     white-space: nowrap;
     
     @media (max-width: ${  FIRST_QUERY(-1) }) { 
-        top: 4px;
         font-size: 11px;
         width: 100%;
         color: white;

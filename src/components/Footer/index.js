@@ -13,7 +13,7 @@ class Footer extends React.Component {
 
                     <LogoWrapper>
                         <Link to="/">
-                            <Logo src="/assets/images/logo6alt.svg" />
+                            <Logo src="/assets/images/logo9alt.svg" />
                         </Link>
                         <SocialMediaView />                    
                     </LogoWrapper>
