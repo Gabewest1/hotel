@@ -4,7 +4,6 @@ import  { PRIMARY_COLOR, SECONDARY_COLOR, TERTIARY_COLOR, FIRST_QUERY} from "../
 
 class ShowComponent extends React.Component {
     render() {
-        console.log(this.props.children )
         return (
             <ShowComponentView { ...this.props }>
                 { this.props.children }
@@ -30,7 +29,6 @@ function makeBreakpoint(breakpoint) {
         return breakpoints.toString().replace(/,/g, "")
     } else {
         const breakpoints = makeBreakpoints(breakpoint)
-        console.log("POINTS", breakpoints)
 
         return breakpoints
     }

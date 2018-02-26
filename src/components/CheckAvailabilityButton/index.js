@@ -11,7 +11,7 @@ const BookRoomButton = styled(Link)`
     text-transform: uppercase;
     color: #ffe5bfe0;  
     display: inline-block;
-    width: 238px;
+    width: 230px;
     height: 29px;
     font-size: 13px;
     display: flex;
@@ -26,16 +26,23 @@ const BookRoomButton = styled(Link)`
     color: ${ SECONDARY_COLOR};
     border: solid 1px ${ SECONDARY_COLOR}};
     white-space: nowrap;
+    width: 250px;
+    height: 35px;
     
     @media (max-width: ${  FIRST_QUERY(-1) }) { 
         font-size: 11px;
-        width: 100%;
         color: white;
         border: solid thin white;
         background: ${ SECONDARY_COLOR };
-
+        
     }
     
+    @media (max-width: 699px) { 
+        width: 100%;
+        background-color: red;
+        color: purple;
+    }
+
     &:hover {
         color: white;
         border: solid thin white;

@@ -17,20 +17,22 @@ class Navbar extends React.Component {
         return (
             <NavbarView { ...this.props }>
                     <TopNavbar>
-                        <ShowComponent breakpoint={ FIRST_QUERY() } flex>
+                        <ShowComponent style={{flexBasis: '33%'}} breakpoint={ FIRST_QUERY() } flex>
                             <Login/>
                         </ShowComponent>
-                        <ShowComponent style={{width: '200px', flexGrow: 1}} breakpoint={[[700, FIRST_QUERY(-1)]]}>
+                        <ShowComponent style={{flexBasis: '33%'}} breakpoint={[[700, FIRST_QUERY(-1)]]}>
                             <CheckAvailabilityButton style={{marginTop: '5px'}}/>
                         </ShowComponent>
-                        <Link to="/">
+                        <_Link to="/" style={{flexBasis: '33%'}}>
                             <Logo src="/assets/images/logo9.svg" />
-                        </Link>                            
-                        <MenuIcon
-                            src="/assets/images/menu.svg"
-                            onClick={() => this.setState({ isExpanded: ! isExpanded })}    
-                        />
-                        <ShowComponent breakpoint={ FIRST_QUERY() } flex>
+                        </_Link>
+                        <MenuWrapper>                            
+                            <MenuIcon
+                                src="/assets/images/menu.svg"
+                                onClick={() => this.setState({ isExpanded: ! isExpanded })}    
+                            />
+                        </MenuWrapper>                            
+                        <ShowComponent style={{flexBasis: '33%'}} breakpoint={ FIRST_QUERY() } flex>
                             <CheckAvailabilityButton />
                         </ShowComponent>
 
@@ -72,6 +74,20 @@ const TopNavWrapper = styled.div`
     display: flex;
     justify-content: center;
 `
+const MenuWrapper = styled.div`
+    flex-basis: 33%;
+    background-color: red;
+    display: flex;
+    justify-content: flex-end;
+`
+const _Link = styled(Link)`
+    flex-basis: 33%;
+    display: flex;
+    justify-content: center;
+
+    ${ Logo } {
+    }
+`
 
 const MenuIcon = styled.img`
     width: 33px;
@@ -88,6 +104,8 @@ const NAV_BAR_STYLE = `
 `
 
 const Logo = styled.img`
+    background-color: green;
+
 `
 
 const ListItem = styled.li`
@@ -166,7 +184,7 @@ const TopNavbar = styled.div`
 const BottomNavbar = styled.div`
     ${ NAV_BAR_STYLE }
     background-color: ${ BOTTOM_NAV_BACKGROUND };
-    height: ${({ isExpanded }) => isExpanded ? "412px" : "0px" };
+    height: ${({ isExpanded }) => isExpanded ? "405px" : "0px" };
     width: 95%;
     overflow: hidden;
     transition: height .5s ease-in-out;
@@ -174,7 +192,7 @@ const BottomNavbar = styled.div`
 
     
     @media (max-width: 699px) {
-    height: ${({ isExpanded }) => isExpanded ? "463px" : "0px" };
+    height: ${({ isExpanded }) => isExpanded ? "455px" : "0px" };
         
 
     }

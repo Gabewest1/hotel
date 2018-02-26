@@ -20,19 +20,20 @@ export default class RoomsSection extends React.Component {
 const Title = styled.h1`
 
 `
-const Description = styled.p`
-
-`
+const Description = styled.p``
 const Image = styled.img``
 
-const Address1 = styled.div`
+const Address1 = styled.span`
+    display: block;
     font-family: 'Montserrat', sans-serif;  
 `
-const Address2 = styled.div`
+const Address2 = styled.span`
+    display: block;
     font-size: 12px;
 `
 
-const Phone = styled.div`
+const Phone = styled.span`
+    display: block;
     font-weight: 500;
     padding-top: 1em;
     color: #333;
